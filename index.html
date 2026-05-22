@@ -9,31 +9,32 @@
 <body>
 
 <!-- ══ ICÔNES BUREAU ══ -->
-<div class="desktopicon" onclick="openWin('win-hub')">
+<div class="desktopicon" onclick="selectIcon(this); openWin('win-hub')">
   <img class="ico" src="Img/foldersmall.png" alt="File Explorer"><p>File Explorer</p>
 </div>
-<div class="desktopicon" onclick="openWin('win-about')">
-  <img class="ico" src="Img/foldersmall.png" alt="À propos"><p>À propos</p>
+<div class="desktopicon" onclick="selectIcon(this); openWin('win-dress')">
+  <img class="ico" src="Img/foldersmall.png" alt="Dress Selec"><p>Dress Selec</p>
 </div>
-<div class="desktopicon" ondblclick="openWin('win-contact')" onclick="selectIcon(this)">
+<div class="desktopicon" onclick="selectIcon(this); openWin('win-music')">
+  <img class="ico" src="Img/foldersmall.png" alt="Musical Dream"><p>Musical Dream</p>
+</div>
+<div class="desktopicon" onclick="selectIcon(this); openWin('win-work')">
+  <img class="ico" src="Img/foldersmall.png" alt="Workaholic"><p>Workaholic</p>
+</div>
+<div class="desktopicon" onclick="selectIcon(this); openWin('win-about')">
+  <img class="ico" src="Img/foldersmall.png" alt="Infos"><p>Infos</p>
+</div>
+<div class="desktopicon" onclick="selectIcon(this); openWin('win-contact')">
   <img class="ico" src="Img/foldersmall.png" alt="Contact"><p>Contact</p>
 </div>
 
 <!-- ══ FILE EXPLORER ══ -->
 <div class="draggable visible" id="win-hub">
   <div class="titlebar">
-    <div class="titlebar-left"><img class="titlebar-ico" src="Img/foldersmall.png" alt="File Explorer"> File Explorer</div>
+    <div class="titlebar-left">File Explorer</div>
     <div class="titlebar-btns">
-      <button onclick="closeWin('win-hub')">_</button>
-      <button>□</button>
       <button class="close-btn" onclick="closeWin('win-hub')">✕</button>
     </div>
-  </div>
-  <div class="altbar">
-    <span class="altbaritem"><span class="underline">F</span>ichier</span>
-    <span class="altbaritem"><span class="underline">E</span>dition</span>
-    <span class="altbaritem"><span class="underline">A</span>fficher</span>
-    <span class="altbaritem"><span class="underline">A</span>ide</span>
   </div>
   <div class="content">
     <div class="folder" ondblclick="openWin('win-dress')">
@@ -46,7 +47,7 @@
       <img class="ico" src="Img/foldersmall.png" alt="Workaholic">Workaholic<span class="note-wip">WIP</span>
     </div>
     <div class="folder" ondblclick="openWin('win-about')">
-      <img class="ico" src="Img/foldersmall.png" alt="À propos">À propos
+      <img class="ico" src="Img/foldersmall.png" alt="Infos">Infos
     </div>
     <div class="folder" ondblclick="openWin('win-contact')">
       <img class="ico" src="Img/foldersmall.png" alt="Contact">Contact
@@ -58,21 +59,35 @@
 <!-- ══ DRESS SELEC ══ -->
 <div class="draggable" id="win-dress">
   <div class="titlebar">
-    <div class="titlebar-left"><img class="titlebar-ico" src="Img/foldersmall.png" alt="Dress Selec"> Dress Selec to impress</div>
+    <div class="titlebar-left">Dress Selec to impress</div>
     <div class="titlebar-btns">
-      <button onclick="closeWin('win-dress')">_</button><button>□</button>
       <button class="close-btn" onclick="closeWin('win-dress')">✕</button>
     </div>
   </div>
-  <div class="altbar">
-    <span class="altbaritem"><span class="underline">F</span>ichier</span>
-    <span class="altbaritem"><span class="underline">E</span>dition</span>
-    <span class="altbaritem"><span class="underline">A</span>fficher</span>
-  </div>
-  <div class="win-text">
-    <h2>Dress Selec to impress</h2>
-    <p>Contenu à venir...</p>
-    <p><a href="./site1/index.html">→ Ouvrir le site complet</a></p>
+  <div class="win-editorial">
+    <div class="editorial-hero">
+      <div class="editorial-hero-text">
+        <h1 class="editorial-title">Dress Selec<br>to impress</h1>
+        <p class="editorial-intro">Un projet autour de la mode et de la sélection vestimentaire. L'idée : t'aider à composer des tenues cohérentes à partir de ce que tu as déjà dans ton dressing.</p>
+        <p class="editorial-intro">Parce que bien s'habiller, ce n'est pas avoir beaucoup — c'est savoir choisir.</p>
+      </div>
+      <div class="editorial-hero-img">
+        <img src="Img/pc.png" alt="Dress Selec">
+      </div>
+    </div>
+    <div class="editorial-cols">
+      <div class="editorial-col">
+        <p class="editorial-label">Concept</p>
+        <p>Un outil de sélection visuelle qui analyse ton dressing et te propose des combinaisons selon ton style, la météo, ou l'occasion.</p>
+      </div>
+      <div class="editorial-col">
+        <p class="editorial-label">Stack</p>
+        <p>HTML · CSS · JavaScript — interface légère, sans base de données, tout en local.</p>
+      </div>
+      <div class="editorial-col editorial-col-italic">
+        <p><em>Le style, c'est refuser de se laisser dicter par les tendances — et construire sa propre cohérence.</em></p>
+      </div>
+    </div>
   </div>
   <div class="statusbar">WIP</div>
 </div>
@@ -80,19 +95,12 @@
 <!-- ══ MUSICAL DREAM ══ -->
 <div class="draggable" id="win-music">
   <div class="titlebar">
-    <div class="titlebar-left"><img class="titlebar-ico" src="Img/foldersmall.png" alt="Musical Dream"> Musical Dream</div>
+    <div class="titlebar-left">Musical Dream</div>
     <div class="titlebar-btns">
-      <button onclick="closeWin('win-music')">_</button><button>□</button>
       <button class="close-btn" onclick="closeWin('win-music')">✕</button>
     </div>
   </div>
-  <div class="altbar">
-    <span class="altbaritem"><span class="underline">F</span>ichier</span>
-    <span class="altbaritem"><span class="underline">E</span>dition</span>
-    <span class="altbaritem"><span class="underline">A</span>fficher</span>
-  </div>
   <div class="win-text">
-    <h2>Musical Dream</h2>
     <p>Contenu à venir...</p>
     <p><a href="./site2/index.html">→ Ouvrir le site complet</a></p>
   </div>
@@ -102,19 +110,12 @@
 <!-- ══ WORKAHOLIC ══ -->
 <div class="draggable" id="win-work">
   <div class="titlebar">
-    <div class="titlebar-left"><img class="titlebar-ico" src="Img/foldersmall.png" alt="Workaholic"> Workaholic</div>
+    <div class="titlebar-left">Workaholic</div>
     <div class="titlebar-btns">
-      <button onclick="closeWin('win-work')">_</button><button>□</button>
       <button class="close-btn" onclick="closeWin('win-work')">✕</button>
     </div>
   </div>
-  <div class="altbar">
-    <span class="altbaritem"><span class="underline">F</span>ichier</span>
-    <span class="altbaritem"><span class="underline">E</span>dition</span>
-    <span class="altbaritem"><span class="underline">A</span>fficher</span>
-  </div>
   <div class="win-text">
-    <h2>Workaholic</h2>
     <p>Contenu à venir...</p>
     <p><a href="./site3/index.html">→ Ouvrir le site complet</a></p>
   </div>
@@ -124,19 +125,12 @@
 <!-- ══ À PROPOS ══ -->
 <div class="draggable" id="win-about">
   <div class="titlebar">
-    <div class="titlebar-left"><img class="titlebar-ico" src="Img/foldersmall.png" alt="À propos"> À propos</div>
+    <div class="titlebar-left">Infos</div>
     <div class="titlebar-btns">
-      <button onclick="closeWin('win-about')">_</button><button>□</button>
       <button class="close-btn" onclick="closeWin('win-about')">✕</button>
     </div>
   </div>
-  <div class="altbar">
-    <span class="altbaritem"><span class="underline">F</span>ichier</span>
-    <span class="altbaritem"><span class="underline">E</span>dition</span>
-    <span class="altbaritem"><span class="underline">A</span>fficher</span>
-  </div>
   <div class="win-text">
-    <h2>À propos</h2>
     <p>Bienvenue sur mon portfolio ! Je suis une développeuse passionnée par la création web et la programmation.</p>
     <p>Ce site vous présente mes projets, mes compétences et ma vision du développement moderne.</p>
   </div>
@@ -146,63 +140,31 @@
 <!-- ══ CONTACT ══ -->
 <div class="draggable" id="win-contact">
   <div class="titlebar">
-    <div class="titlebar-left"><img class="titlebar-ico" src="Img/foldersmall.png" alt="Contact"> Contact</div>
+    <div class="titlebar-left">Contact</div>
     <div class="titlebar-btns">
-      <button onclick="closeWin('win-contact')">_</button><button>□</button>
       <button class="close-btn" onclick="closeWin('win-contact')">✕</button>
     </div>
   </div>
-  <div class="altbar">
-    <span class="altbaritem"><span class="underline">F</span>ichier</span>
-    <span class="altbaritem"><span class="underline">E</span>dition</span>
-    <span class="altbaritem"><span class="underline">A</span>fficher</span>
-  </div>
   <div class="win-text">
-    <h2>Contact</h2>
     <p>Tu peux me contacter par <a href="mailto:ton@email.com">Email</a>.</p>
   </div>
   <div class="statusbar">Terminé</div>
 </div>
 
-<!-- ══ TASKBAR ══ -->
-<div class="taskbar">
-  <button class="start-btn" onclick="openWin('win-hub')">
-    <img class="start-icon" src="Img/foldersmall.png" alt="Démarrer"> Démarrer
-  </button>
-  <div class="taskbar-divider"></div>
-  <div id="taskbar-buttons" style="display:flex;gap:4px;"></div>
-  <div id="clock">00:00</div>
-</div>
 
 <script>
   let zTop = 10;
-  const openWindows = new Set(['win-hub']);
-  const winNames = {
-    'win-hub':     'File Explorer',
-    'win-dress':   'Dress Selec',
-    'win-music':   'Musical Dream',
-    'win-work':    'Workaholic',
-    'win-about':   'À propos',
-    'win-contact': 'Contact',
-  };
 
   function openWin(id) {
     const win = document.getElementById(id);
     win.style.display = 'flex';
-    openWindows.add(id);
     focusWin(win);
-    updateTaskbar();
   }
   function closeWin(id) {
     document.getElementById(id).style.display = 'none';
-    openWindows.delete(id);
-    updateTaskbar();
   }
   function focusWin(win) {
     win.style.zIndex = ++zTop;
-    document.querySelectorAll('.taskbar-btn').forEach(b => b.classList.remove('active'));
-    const btn = document.getElementById('tb-' + win.id);
-    if (btn) btn.classList.add('active');
   }
   function selectIcon(el) {
     document.querySelectorAll('.desktopicon').forEach(d => d.classList.remove('selected'));
@@ -212,18 +174,6 @@
     if (!e.target.closest('.desktopicon') && !e.target.closest('.draggable'))
       document.querySelectorAll('.desktopicon').forEach(d => d.classList.remove('selected'));
   });
-  function updateTaskbar() {
-    const c = document.getElementById('taskbar-buttons');
-    c.innerHTML = '';
-    openWindows.forEach(id => {
-      const btn = document.createElement('button');
-      btn.className = 'taskbar-btn';
-      btn.id = 'tb-' + id;
-      btn.textContent = winNames[id] || id;
-      btn.onclick = () => focusWin(document.getElementById(id));
-      c.appendChild(btn);
-    });
-  }
   document.querySelectorAll('.draggable').forEach(win => {
     win.addEventListener('mousedown', () => focusWin(win));
     win.querySelector('.titlebar').addEventListener('mousedown', e => {
@@ -244,13 +194,6 @@
       e.preventDefault();
     });
   });
-  function updateClock() {
-    document.getElementById('clock').textContent =
-      new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-  }
-  updateClock();
-  setInterval(updateClock, 1000);
-  updateTaskbar();
 </script>
 </body>
 </html>
