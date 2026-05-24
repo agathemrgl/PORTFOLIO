@@ -28,51 +28,59 @@
 <body>
 
 <!-- ══ ICÔNES BUREAU ══ -->
-<div class="desktopicon" onclick="selectIcon(this); openWin('win-hub')">
-  <img class="ico" src="Img/foldersmall.png" alt="File Explorer"><p>File Explorer</p>
+<div class="desktopicon" onclick="selectIcon(this); openWin('win-about')">
+  <img class="ico" src="Img/folder.svg" alt="Infos"><p>Infos</p>
 </div>
 <div class="desktopicon" onclick="selectIcon(this); openWin('win-dress')">
-  <img class="ico" src="Img/foldersmall.png" alt="Dress Selec"><p>Dress Selec</p>
+  <img class="ico" src="Img/folder.svg" alt="Dress Selec"><p>Dress Selec</p>
 </div>
 <div class="desktopicon" onclick="selectIcon(this); openWin('win-music')">
-  <img class="ico" src="Img/foldersmall.png" alt="Musical Dream"><p>Musical Dream</p>
+  <img class="ico" src="Img/folder.svg" alt="Musical Dream"><p>Musical Dream</p>
 </div>
 <div class="desktopicon" onclick="selectIcon(this); openWin('win-work')">
-  <img class="ico" src="Img/foldersmall.png" alt="Workaholic"><p>Workaholic</p>
-</div>
-<div class="desktopicon" onclick="selectIcon(this); openWin('win-about')">
-  <img class="ico" src="Img/foldersmall.png" alt="Infos"><p>Infos</p>
+  <img class="ico" src="Img/folder.svg" alt="Workaholic"><p>Workaholic</p>
 </div>
 <div class="desktopicon" onclick="selectIcon(this); openWin('win-contact')">
-  <img class="ico" src="Img/foldersmall.png" alt="Contact"><p>Contact</p>
+  <img class="ico" src="Img/folder.svg" alt="Contact"><p>Contact</p>
 </div>
 
-<!-- ══ FILE EXPLORER ══ -->
-<div class="draggable visible" id="win-hub">
+
+<!-- ══ INFOS : PHOTO ══ -->
+<div class="draggable" id="win-info-photo">
   <div class="titlebar">
-    <div class="titlebar-left">File Explorer</div>
+    <div class="titlebar-left">Home</div>
     <div class="titlebar-btns">
-      <button class="close-btn" onclick="closeWin('win-hub')">✕</button>
+      <button class="close-btn" onclick="closeWin('win-info-photo')">✕</button>
     </div>
   </div>
-  <div class="content">
-    <div class="folder" ondblclick="openWin('win-dress')">
-      <img class="ico" src="Img/foldersmall.png" alt="Dress Selec">Dress Selec to impress<span class="note-wip">WIP</span>
-    </div>
-    <div class="folder" ondblclick="openWin('win-music')">
-      <img class="ico" src="Img/foldersmall.png" alt="Musical Dream">Musical Dream<span class="note-wip">WIP</span>
-    </div>
-    <div class="folder" ondblclick="openWin('win-work')">
-      <img class="ico" src="Img/foldersmall.png" alt="Workaholic">Workaholic<span class="note-wip">WIP</span>
-    </div>
-    <div class="folder" ondblclick="openWin('win-about')">
-      <img class="ico" src="Img/foldersmall.png" alt="Infos">Infos
-    </div>
-    <div class="folder" ondblclick="openWin('win-contact')">
-      <img class="ico" src="Img/foldersmall.png" alt="Contact">Contact
+  <div class="info-photo-placeholder"></div>
+</div>
+
+<!-- ══ INFOS : NOM ══ -->
+<div class="draggable" id="win-info-name">
+  <div class="titlebar">
+    <div class="titlebar-left">Home</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-info-name')">✕</button>
     </div>
   </div>
-  <div class="statusbar">5 objets</div>
+  <div class="win-text info-name">
+    <p class="info-name-text">Agathe Margely</p>
+  </div>
+</div>
+
+<!-- ══ INFOS : INTRO ══ -->
+<div class="draggable" id="win-info-intro">
+  <div class="titlebar">
+    <div class="titlebar-left">Home</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-info-intro')">✕</button>
+    </div>
+  </div>
+  <div class="win-text">
+    <p>Designer & développeuse web, je crée des interfaces qui mêlent esthétique et fonctionnalité.</p>
+    <p>Ce portfolio regroupe mes projets personnels — en cours ou terminés.</p>
+  </div>
 </div>
 
 <!-- ══ DRESS SELEC ══ -->
@@ -83,30 +91,48 @@
       <button class="close-btn" onclick="closeWin('win-dress')">✕</button>
     </div>
   </div>
-  <div class="win-editorial">
-    <div class="editorial-hero">
-      <div class="editorial-hero-text">
-        <h1 class="editorial-title">Dress Selec<br>to impress</h1>
-        <p class="editorial-intro">Un projet autour de la mode et de la sélection vestimentaire. L'idée : t'aider à composer des tenues cohérentes à partir de ce que tu as déjà dans ton dressing.</p>
-        <p class="editorial-intro">Parce que bien s'habiller, ce n'est pas avoir beaucoup — c'est savoir choisir.</p>
-      </div>
-      <div class="editorial-hero-img">
-        <img src="Img/pc.png" alt="Dress Selec">
+  <div class="win-scroll">
+
+    <div class="scroll-block scroll-block--hero">
+      <div class="scroll-placeholder scroll-placeholder--large"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Introduction</p>
+        <p>Quelques lignes de présentation du projet ici. De quoi s'agit-il, quelle est l'idée principale ?</p>
       </div>
     </div>
-    <div class="editorial-cols">
-      <div class="editorial-col">
-        <p class="editorial-label">Concept</p>
-        <p>Un outil de sélection visuelle qui analyse ton dressing et te propose des combinaisons selon ton style, la météo, ou l'occasion.</p>
+
+    <div class="scroll-block scroll-block--reverse">
+      <div class="scroll-block-text">
+        <p class="editorial-label">Contexte</p>
+        <p>Un peu de contexte sur le projet — pourquoi ce sujet, quelle est la problématique de départ.</p>
       </div>
-      <div class="editorial-col">
-        <p class="editorial-label">Stack</p>
-        <p>HTML · CSS · JavaScript — interface légère, sans base de données, tout en local.</p>
-      </div>
-      <div class="editorial-col editorial-col-italic">
-        <p><em>Le style, c'est refuser de se laisser dicter par les tendances — et construire sa propre cohérence.</em></p>
+      <div class="scroll-placeholder"></div>
+    </div>
+
+    <div class="scroll-block">
+      <div class="scroll-placeholder"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Processus</p>
+        <p>Étapes de création, recherches, itérations — comment le projet a évolué jusqu'à sa forme finale.</p>
       </div>
     </div>
+
+    <div class="scroll-block scroll-block--reverse">
+      <div class="scroll-block-text">
+        <p class="editorial-label">Résultat</p>
+        <p>Ce que le projet produit, à quoi il ressemble, ce qu'il permet de faire.</p>
+      </div>
+      <div class="scroll-placeholder"></div>
+    </div>
+
+    <div class="scroll-block">
+      <div class="scroll-placeholder"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Détail</p>
+        <p>Un zoom sur un élément particulier — une interaction, une décision de design, un choix technique.</p>
+      </div>
+    </div>
+
   </div>
   <div class="statusbar">WIP</div>
 </div>
@@ -119,9 +145,48 @@
       <button class="close-btn" onclick="closeWin('win-music')">✕</button>
     </div>
   </div>
-  <div class="win-text">
-    <p>Contenu à venir...</p>
-    <p><a href="./site2/index.html">→ Ouvrir le site complet</a></p>
+  <div class="win-scroll">
+
+    <div class="scroll-block scroll-block--hero">
+      <div class="scroll-placeholder scroll-placeholder--large"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Introduction</p>
+        <p>Quelques lignes de présentation du projet ici. De quoi s'agit-il, quelle est l'idée principale ?</p>
+      </div>
+    </div>
+
+    <div class="scroll-block scroll-block--reverse">
+      <div class="scroll-block-text">
+        <p class="editorial-label">Contexte</p>
+        <p>Un peu de contexte sur le projet — pourquoi ce sujet, quelle est la problématique de départ.</p>
+      </div>
+      <div class="scroll-placeholder"></div>
+    </div>
+
+    <div class="scroll-block">
+      <div class="scroll-placeholder"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Processus</p>
+        <p>Étapes de création, recherches, itérations — comment le projet a évolué jusqu'à sa forme finale.</p>
+      </div>
+    </div>
+
+    <div class="scroll-block scroll-block--reverse">
+      <div class="scroll-block-text">
+        <p class="editorial-label">Résultat</p>
+        <p>Ce que le projet produit, à quoi il ressemble, ce qu'il permet de faire.</p>
+      </div>
+      <div class="scroll-placeholder"></div>
+    </div>
+
+    <div class="scroll-block">
+      <div class="scroll-placeholder"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Détail</p>
+        <p>Un zoom sur un élément particulier — une interaction, une décision de design, un choix technique.</p>
+      </div>
+    </div>
+
   </div>
   <div class="statusbar">WIP</div>
 </div>
@@ -134,9 +199,48 @@
       <button class="close-btn" onclick="closeWin('win-work')">✕</button>
     </div>
   </div>
-  <div class="win-text">
-    <p>Contenu à venir...</p>
-    <p><a href="./site3/index.html">→ Ouvrir le site complet</a></p>
+  <div class="win-scroll">
+
+    <div class="scroll-block scroll-block--hero">
+      <div class="scroll-placeholder scroll-placeholder--large"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Introduction</p>
+        <p>Quelques lignes de présentation du projet ici. De quoi s'agit-il, quelle est l'idée principale ?</p>
+      </div>
+    </div>
+
+    <div class="scroll-block scroll-block--reverse">
+      <div class="scroll-block-text">
+        <p class="editorial-label">Contexte</p>
+        <p>Un peu de contexte sur le projet — pourquoi ce sujet, quelle est la problématique de départ.</p>
+      </div>
+      <div class="scroll-placeholder"></div>
+    </div>
+
+    <div class="scroll-block">
+      <div class="scroll-placeholder"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Processus</p>
+        <p>Étapes de création, recherches, itérations — comment le projet a évolué jusqu'à sa forme finale.</p>
+      </div>
+    </div>
+
+    <div class="scroll-block scroll-block--reverse">
+      <div class="scroll-block-text">
+        <p class="editorial-label">Résultat</p>
+        <p>Ce que le projet produit, à quoi il ressemble, ce qu'il permet de faire.</p>
+      </div>
+      <div class="scroll-placeholder"></div>
+    </div>
+
+    <div class="scroll-block">
+      <div class="scroll-placeholder"></div>
+      <div class="scroll-block-text">
+        <p class="editorial-label">Détail</p>
+        <p>Un zoom sur un élément particulier — une interaction, une décision de design, un choix technique.</p>
+      </div>
+    </div>
+
   </div>
   <div class="statusbar">WIP</div>
 </div>
@@ -174,9 +278,17 @@
 <script>
   let zTop = 10;
 
+  function updateWinTop(win) {
+    const top = win.getBoundingClientRect().top;
+    win.style.setProperty('--win-top', Math.max(0, top) + 'px');
+  }
   function openWin(id) {
     const win = document.getElementById(id);
     win.style.display = 'flex';
+    win.classList.remove('win-appear');
+    void win.offsetWidth;
+    win.classList.add('win-appear');
+    updateWinTop(win);
     focusWin(win);
   }
   function closeWin(id) {
@@ -195,7 +307,11 @@
   });
   document.querySelectorAll('.draggable').forEach(win => {
     win.addEventListener('mousedown', () => focusWin(win));
-    win.querySelector('.titlebar').addEventListener('mousedown', e => {
+    win.addEventListener('touchstart', () => focusWin(win), { passive: true });
+
+    const titlebar = win.querySelector('.titlebar');
+
+    titlebar.addEventListener('mousedown', e => {
       if (e.target.tagName === 'BUTTON') return;
       const r = win.getBoundingClientRect();
       const ox = e.clientX - r.left, oy = e.clientY - r.top;
@@ -203,6 +319,7 @@
         win.style.left = (e.clientX - ox) + 'px';
         win.style.top  = (e.clientY - oy) + 'px';
         win.style.right = win.style.bottom = 'auto';
+        updateWinTop(win);
       };
       const onUp = () => {
         document.removeEventListener('mousemove', onMove);
@@ -212,7 +329,30 @@
       document.addEventListener('mouseup', onUp);
       e.preventDefault();
     });
+
+    titlebar.addEventListener('touchstart', e => {
+      if (e.target.tagName === 'BUTTON') return;
+      const touch = e.touches[0];
+      const r = win.getBoundingClientRect();
+      const ox = touch.clientX - r.left, oy = touch.clientY - r.top;
+      const onMove = e => {
+        const t = e.touches[0];
+        win.style.left = (t.clientX - ox) + 'px';
+        win.style.top  = (t.clientY - oy) + 'px';
+        win.style.right = win.style.bottom = 'auto';
+        e.preventDefault();
+      };
+      const onEnd = () => {
+        document.removeEventListener('touchmove', onMove);
+        document.removeEventListener('touchend', onEnd);
+      };
+      document.addEventListener('touchmove', onMove, { passive: false });
+      document.addEventListener('touchend', onEnd);
+    }, { passive: true });
   });
+
+  const sequence = ['win-info-photo', 'win-info-name', 'win-info-intro'];
+  sequence.forEach((id, i) => setTimeout(() => openWin(id), 300 + i * 450));
 </script>
 </body>
 </html>
