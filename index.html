@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <title>Portfolio — Agathe Margely</title>
   <meta name="description" content="Portfolio de Agathe Margely — designer.">
@@ -33,7 +33,7 @@
 <div class="desktopicon" onclick="selectIcon(this); openWin('win-about')">
   <img class="ico" src="Img/folder.svg" alt="Infos"><p>Infos</p>
 </div>
-<div class="desktopicon" onclick="selectIcon(this); openWin('win-dress')">
+<div class="desktopicon" onclick="selectIcon(this); openFolder(['win-dress-text-1','win-dress-text-2','win-dress-img-1','win-dress-img-2'])">
   <img class="ico" src="Img/folder.svg" alt="Dress Selec"><p>Dress Selec</p>
 </div>
 <div class="desktopicon" onclick="selectIcon(this); openWin('win-music')">
@@ -88,58 +88,57 @@
   </div>
 </div>
 
-<!-- ══ DRESS SELEC ══ -->
-<div class="draggable" id="win-dress">
+<!-- ══ DRESS SELEC : TEXTE 1 ══ -->
+<div class="draggable win-dress" id="win-dress-text-1">
   <div class="titlebar">
     <div class="titlebar-left">Dress Selec to impress</div>
     <div class="titlebar-btns">
-      <button class="close-btn" onclick="closeWin('win-dress')">✕</button>
+      <button class="close-btn" onclick="closeWin('win-dress-text-1')">✕</button>
     </div>
   </div>
-  <div class="win-scroll">
-
-    <div class="scroll-block scroll-block--hero">
-      <div class="scroll-placeholder scroll-placeholder--large"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Introduction</p>
-        <p>Quelques lignes de présentation du projet ici. De quoi s'agit-il, quelle est l'idée principale ?</p>
-      </div>
-    </div>
-
-    <div class="scroll-block scroll-block--reverse">
-      <div class="scroll-block-text">
-        <p class="editorial-label">Contexte</p>
-        <p>Un peu de contexte sur le projet — pourquoi ce sujet, quelle est la problématique de départ.</p>
-      </div>
-      <div class="scroll-placeholder"></div>
-    </div>
-
-    <div class="scroll-block">
-      <div class="scroll-placeholder"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Processus</p>
-        <p>Étapes de création, recherches, itérations — comment le projet a évolué jusqu'à sa forme finale.</p>
-      </div>
-    </div>
-
-    <div class="scroll-block scroll-block--reverse">
-      <div class="scroll-block-text">
-        <p class="editorial-label">Résultat</p>
-        <p>Ce que le projet produit, à quoi il ressemble, ce qu'il permet de faire.</p>
-      </div>
-      <div class="scroll-placeholder"></div>
-    </div>
-
-    <div class="scroll-block">
-      <div class="scroll-placeholder"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Détail</p>
-        <p>Un zoom sur un élément particulier — une interaction, une décision de design, un choix technique.</p>
-      </div>
-    </div>
-
+  <div class="win-text">
+    <p class="editorial-label">Introduction</p>
+    <p>Un projet autour de la mode et de la sélection vestimentaire. L'idée : composer des tenues cohérentes à partir de ce que tu as déjà dans ton dressing.</p>
+    <p>Parce que bien s'habiller, ce n'est pas avoir beaucoup — c'est savoir choisir.</p>
   </div>
-  <div class="statusbar">WIP</div>
+</div>
+
+<!-- ══ DRESS SELEC : TEXTE 2 ══ -->
+<div class="draggable win-dress" id="win-dress-text-2">
+  <div class="titlebar">
+    <div class="titlebar-left">Dress Selec to impress</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-dress-text-2')">✕</button>
+    </div>
+  </div>
+  <div class="win-text">
+    <p class="editorial-label">Stack</p>
+    <p>HTML · CSS · JavaScript — interface légère, sans base de données, tout en local.</p>
+    <p class="editorial-label" style="margin-top:12px">Statut</p>
+    <p>Work in progress — première version en cours de construction.</p>
+  </div>
+</div>
+
+<!-- ══ DRESS SELEC : IMAGE 1 ══ -->
+<div class="draggable win-dress" id="win-dress-img-1">
+  <div class="titlebar">
+    <div class="titlebar-left">Dress Selec to impress</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-dress-img-1')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-placeholder"></div>
+</div>
+
+<!-- ══ DRESS SELEC : IMAGE 2 ══ -->
+<div class="draggable win-dress" id="win-dress-img-2">
+  <div class="titlebar">
+    <div class="titlebar-left">Dress Selec to impress</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-dress-img-2')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-placeholder"></div>
 </div>
 
 <!-- ══ MUSICAL DREAM ══ -->
@@ -282,6 +281,10 @@
 </div><!-- /#win-container -->
 </div><!-- /#layout -->
 
+<footer class="site-footer">
+  <button class="reset-btn" onclick="location.reload()">Reset</button>
+</footer>
+
 <script>
   let zTop = 10;
 
@@ -289,12 +292,12 @@
     const top = win.getBoundingClientRect().top;
     win.style.setProperty('--win-top', Math.max(0, top) + 'px');
   }
-  function openWin(id) {
+  function openWin(id, skipScroll = false) {
     const win = document.getElementById(id);
     if (isMobile()) {
       const container = document.getElementById('win-container');
       if (win.style.display === 'flex') {
-        win.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (!skipScroll) win.scrollIntoView({ behavior: 'smooth', block: 'start' });
         return;
       }
       container.appendChild(win);
@@ -305,10 +308,17 @@
     win.classList.add('win-appear');
     updateWinTop(win);
     focusWin(win);
-    if (isMobile()) win.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (isMobile() && !skipScroll) win.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function closeWin(id) {
     document.getElementById(id).style.display = 'none';
+  }
+  function openFolder(ids) {
+    if (isMobile()) {
+      ids.forEach((id, i) => openWin(id, i !== 0));
+    } else {
+      ids.forEach((id, i) => setTimeout(() => openWin(id), i * 180));
+    }
   }
   function focusWin(win) {
     win.style.zIndex = ++zTop;
