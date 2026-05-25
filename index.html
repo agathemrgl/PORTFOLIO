@@ -27,6 +27,8 @@
 </head>
 <body>
 
+<div id="layout">
+<div class="sidebar">
 <!-- ══ ICÔNES BUREAU ══ -->
 <div class="desktopicon" onclick="selectIcon(this); openWin('win-about')">
   <img class="ico" src="Img/folder.svg" alt="Infos"><p>Infos</p>
@@ -43,23 +45,25 @@
 <div class="desktopicon" onclick="selectIcon(this); openWin('win-contact')">
   <img class="ico" src="Img/folder.svg" alt="Contact"><p>Contact</p>
 </div>
+</div><!-- /.sidebar -->
+<div id="win-container">
 
 
 <!-- ══ INFOS : PHOTO ══ -->
-<div class="draggable" id="win-info-photo">
+<div class="draggable win-home" id="win-info-photo">
   <div class="titlebar">
-    <div class="titlebar-left">Home</div>
+    <div class="titlebar-left">Home > Photo</div>
     <div class="titlebar-btns">
       <button class="close-btn" onclick="closeWin('win-info-photo')">✕</button>
     </div>
   </div>
-  <div class="info-photo-placeholder"></div>
+  <img class="info-photo" src="Img/portrait_1.gif" alt="Portrait">
 </div>
 
 <!-- ══ INFOS : NOM ══ -->
-<div class="draggable" id="win-info-name">
+<div class="draggable win-home" id="win-info-name">
   <div class="titlebar">
-    <div class="titlebar-left">Home</div>
+    <div class="titlebar-left">Home > Name</div>
     <div class="titlebar-btns">
       <button class="close-btn" onclick="closeWin('win-info-name')">✕</button>
     </div>
@@ -70,16 +74,17 @@
 </div>
 
 <!-- ══ INFOS : INTRO ══ -->
-<div class="draggable" id="win-info-intro">
+<div class="draggable win-home" id="win-info-intro">
   <div class="titlebar">
-    <div class="titlebar-left">Home</div>
+    <div class="titlebar-left">Home > Intro</div>
     <div class="titlebar-btns">
       <button class="close-btn" onclick="closeWin('win-info-intro')">✕</button>
     </div>
   </div>
   <div class="win-text">
-    <p>Designer & développeuse web, je crée des interfaces qui mêlent esthétique et fonctionnalité.</p>
-    <p>Ce portfolio regroupe mes projets personnels — en cours ou terminés.</p>
+    <p>
+      Designer & développeuse web, je crée des interfaces qui mêlent esthétique et fonctionnalité. Ce portfolio regroupe mes projets personnels — en cours ou terminés.
+    </p>
   </div>
 </div>
 
@@ -274,6 +279,8 @@
   <div class="statusbar">Terminé</div>
 </div>
 
+</div><!-- /#win-container -->
+</div><!-- /#layout -->
 
 <script>
   let zTop = 10;
@@ -284,12 +291,21 @@
   }
   function openWin(id) {
     const win = document.getElementById(id);
+    if (isMobile()) {
+      const container = document.getElementById('win-container');
+      if (win.style.display === 'flex') {
+        win.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      container.appendChild(win);
+    }
     win.style.display = 'flex';
     win.classList.remove('win-appear');
     void win.offsetWidth;
     win.classList.add('win-appear');
     updateWinTop(win);
     focusWin(win);
+    if (isMobile()) win.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function closeWin(id) {
     document.getElementById(id).style.display = 'none';
@@ -305,14 +321,15 @@
     if (!e.target.closest('.desktopicon') && !e.target.closest('.draggable'))
       document.querySelectorAll('.desktopicon').forEach(d => d.classList.remove('selected'));
   });
+  const isMobile = () => window.innerWidth <= 768;
+
   document.querySelectorAll('.draggable').forEach(win => {
-    win.addEventListener('mousedown', () => focusWin(win));
-    win.addEventListener('touchstart', () => focusWin(win), { passive: true });
+    win.addEventListener('mousedown', () => { if (!isMobile()) focusWin(win); });
 
     const titlebar = win.querySelector('.titlebar');
 
     titlebar.addEventListener('mousedown', e => {
-      if (e.target.tagName === 'BUTTON') return;
+      if (isMobile() || e.target.tagName === 'BUTTON') return;
       const r = win.getBoundingClientRect();
       const ox = e.clientX - r.left, oy = e.clientY - r.top;
       const onMove = e => {
@@ -329,30 +346,15 @@
       document.addEventListener('mouseup', onUp);
       e.preventDefault();
     });
-
-    titlebar.addEventListener('touchstart', e => {
-      if (e.target.tagName === 'BUTTON') return;
-      const touch = e.touches[0];
-      const r = win.getBoundingClientRect();
-      const ox = touch.clientX - r.left, oy = touch.clientY - r.top;
-      const onMove = e => {
-        const t = e.touches[0];
-        win.style.left = (t.clientX - ox) + 'px';
-        win.style.top  = (t.clientY - oy) + 'px';
-        win.style.right = win.style.bottom = 'auto';
-        e.preventDefault();
-      };
-      const onEnd = () => {
-        document.removeEventListener('touchmove', onMove);
-        document.removeEventListener('touchend', onEnd);
-      };
-      document.addEventListener('touchmove', onMove, { passive: false });
-      document.addEventListener('touchend', onEnd);
-    }, { passive: true });
   });
 
-  const sequence = ['win-info-photo', 'win-info-name', 'win-info-intro'];
-  sequence.forEach((id, i) => setTimeout(() => openWin(id), 300 + i * 450));
+  const homeWins = ['win-info-photo', 'win-info-name', 'win-info-intro'];
+
+  if (isMobile()) {
+    homeWins.forEach(id => openWin(id));
+  } else {
+    homeWins.forEach((id, i) => setTimeout(() => openWin(id), 300 + i * 450));
+  }
 </script>
 </body>
 </html>

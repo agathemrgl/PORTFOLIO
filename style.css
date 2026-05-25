@@ -137,14 +137,14 @@ html, body {
 	font-size: 13px;
 	font-family: "IBM Plex Sans", Arial, sans-serif;
 	cursor: pointer;
-	color: #555;
+	color: #757575;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.titlebar-btns button:hover { background: #e0d8d0; color: #111; }
-.titlebar-btns button.close-btn:hover { background: #dcd8d1; color: #111; }
+.titlebar-btns button:hover { background: #efecb3; color: #111; }
+.titlebar-btns button.close-btn:hover { background: #efecb3; color: #111; }
 
 
 
@@ -313,11 +313,18 @@ hr {
 	margin: 0 0 8px 0 !important;
 }
 
+/* ── FENÊTRES HOME ── */
+.win-home { background-color: #fdff92; }
+.win-home .titlebar { background: #fdff92; border-bottom-color: #1a1a1a; }
+.win-home .win-text { background-color: #fdff92; }
+
 /* ── FENÊTRES INFOS ── */
-.info-photo-placeholder {
+.info-photo {
 	width: 100%;
-	height: 260px;
-	background: #d8d0c8;
+	flex: 1;
+	display: block;
+	object-fit: cover;
+	min-height: 0;
 }
 
 .info-name {
@@ -336,9 +343,76 @@ hr {
 #win-info-photo { top: 80px;  left: 250px;  width: 300px; height: 500px; z-index: 1; display: none; }
 #win-info-name  { top: 400px;  left: 480px;  width: 500px; z-index: 1; display: none; }
 #win-info-intro { top: 550px; left: 700px;  width: 1100px; z-index: 1; display: none; }
-#win-dress   { top: 150px;  left: 450px; width: 660px; max-height: 850px; z-index: 1; display: none; }
+#win-dress   { top: 40px; left: 100px; width: 660px; z-index: 1; display: none; }
 #win-music   { top: 40px; left: 100px; width: 660px; z-index: 1; display: none; }
 #win-work    { top: 40px; left: 100px; width: 660px; z-index: 1; display: none; }
-#win-about   { top: 50%;  left: 50%; transform: translate(-20%, -50%); width: 320px; z-index: 1; display: none; }
+#win-about   { top: 50%; left: 50%; transform: translate(-20%, -50%); width: 320px; z-index: 1; display: none; }
 #win-contact { top: 160px; left: 580px; width: 360px; z-index: 1; display: none; }
+
+/* ── LAYOUT GÉNÉRAL ── */
+#layout {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ── RESPONSIVE MOBILE ── */
+@media (max-width: 768px) {
+  html, body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #layout {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: 80px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+    overflow-y: auto;
+  }
+
+  .desktopicon {
+    width: 64px;
+    margin: 4px 0;
+  }
+
+  #win-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px 40px 8px;
+  }
+
+  .draggable {
+    position: static !important;
+    width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  #win-about { transform: none !important; }
+
+  .titlebar { cursor: default; }
+
+  .win-scroll,
+  .win-text,
+  .win-editorial {
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+}
 
