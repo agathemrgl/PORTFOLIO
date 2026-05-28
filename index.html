@@ -30,20 +30,23 @@
 <div id="layout">
 <div class="sidebar">
 <!-- ══ ICÔNES BUREAU ══ -->
-<div class="desktopicon" onclick="selectIcon(this); openWin('win-about')">
-  <img class="ico" src="Img/folder.svg" alt="Infos"><p>Infos</p>
+<div class="desktopicon" onclick="selectIcon(this); toggleFolder(['win-info-photo','win-info-name','win-info-intro'])">
+  <img class="ico" src="Img/folder-home.png" alt="Home"><p>Home</p>
 </div>
-<div class="desktopicon" onclick="selectIcon(this); openFolder(['win-dress-text-1','win-dress-text-2','win-dress-img-1','win-dress-img-2'])">
-  <img class="ico" src="Img/folder.svg" alt="Dress Selec"><p>Dress Selec</p>
+<div class="desktopicon" onclick="selectIcon(this); toggleWin('win-about')">
+  <img class="ico" src="Img/folder-cv.png" alt="Infos"><p>Infos</p>
 </div>
-<div class="desktopicon" onclick="selectIcon(this); openWin('win-music')">
+<div class="desktopicon" onclick="selectIcon(this); toggleFolder(['win-dress-text-1','win-dress-text-2','win-dress-img-1','win-dress-img-2'])">
+  <img class="ico" src="Img/folder-projet.png" alt="Dress Selec"><p>Dress Selec</p>
+</div>
+<div class="desktopicon" onclick="selectIcon(this); toggleWin('win-music')">
   <img class="ico" src="Img/folder.svg" alt="Musical Dream"><p>Musical Dream</p>
 </div>
-<div class="desktopicon" onclick="selectIcon(this); openWin('win-work')">
+<div class="desktopicon" onclick="selectIcon(this); toggleWin('win-work')">
   <img class="ico" src="Img/folder.svg" alt="Workaholic"><p>Workaholic</p>
 </div>
-<div class="desktopicon" onclick="selectIcon(this); openWin('win-contact')">
-  <img class="ico" src="Img/folder.svg" alt="Contact"><p>Contact</p>
+<div class="desktopicon" onclick="selectIcon(this); toggleWin('win-contact')">
+  <img class="ico" src="Img/folder-contact.png" alt="Contact"><p>Contact</p>
 </div>
 </div><!-- /.sidebar -->
 <div id="win-container">
@@ -63,7 +66,7 @@
 <!-- ══ INFOS : NOM ══ -->
 <div class="draggable win-home" id="win-info-name">
   <div class="titlebar">
-    <div class="titlebar-left">Home > Name</div>
+    <div class="titlebar-left">Home > Nom</div>
     <div class="titlebar-btns">
       <button class="close-btn" onclick="closeWin('win-info-name')">✕</button>
     </div>
@@ -83,8 +86,7 @@
   </div>
   <div class="win-text">
     <p>
-      Designer & développeuse web, je crée des interfaces qui mêlent esthétique et fonctionnalité. Ce portfolio regroupe mes projets personnels — en cours ou terminés.
-    </p>
+Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon parcours dans le design :) Baladez-vous et dévoilez les fenêtres de cette interface équivoque.      </p>
   </div>
 </div>
 
@@ -288,10 +290,20 @@
 <script>
   let zTop = 10;
 
-  function updateWinTop(win) {
-    const top = win.getBoundingClientRect().top;
-    win.style.setProperty('--win-top', Math.max(0, top) + 'px');
+  function isImgWin(win) {
+    return !!win.querySelector('.win-img-placeholder, .info-photo');
   }
+
+  function randomPos(win) {
+    const w = win.offsetWidth  || 300;
+    const h = win.offsetHeight || 200;
+    const M = 120;
+    return {
+      left: M + Math.round(Math.random() * Math.max(0, window.innerWidth  - w - M * 2)),
+      top:  M + Math.round(Math.random() * Math.max(0, window.innerHeight - h - M - 44))
+    };
+  }
+
   function openWin(id, skipScroll = false) {
     const win = document.getElementById(id);
     if (isMobile()) {
@@ -306,18 +318,37 @@
     win.classList.remove('win-appear');
     void win.offsetWidth;
     win.classList.add('win-appear');
-    updateWinTop(win);
+    if (!isMobile()) {
+      const pos = randomPos(win);
+      win.style.left   = pos.left + 'px';
+      win.style.top    = pos.top  + 'px';
+      win.style.right  = 'auto';
+      win.style.bottom = 'auto';
+      win._ratioX = pos.left / window.innerWidth;
+      win._ratioY = pos.top  / window.innerHeight;
+    }
     focusWin(win);
     if (isMobile() && !skipScroll) win.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function closeWin(id) {
     document.getElementById(id).style.display = 'none';
   }
+  function toggleWin(id) {
+    const win = document.getElementById(id);
+    win.style.display === 'flex' ? closeWin(id) : openWin(id);
+  }
+  function toggleFolder(ids) {
+    const anyOpen = ids.some(id => document.getElementById(id).style.display === 'flex');
+    if (anyOpen) { [...ids].reverse().forEach((id, i) => setTimeout(() => closeWin(id), i * 180)); } else { openFolder(ids); }
+  }
   function openFolder(ids) {
+    const imgs = ids.filter(id => isImgWin(document.getElementById(id)));
+    const txts = ids.filter(id => !isImgWin(document.getElementById(id)));
+    const ordered = [...imgs, ...txts];
     if (isMobile()) {
-      ids.forEach((id, i) => openWin(id, i !== 0));
+      ordered.forEach((id, i) => openWin(id, i !== 0));
     } else {
-      ids.forEach((id, i) => setTimeout(() => openWin(id), i * 180));
+      ordered.forEach((id, i) => setTimeout(() => openWin(id), i * 180));
     }
   }
   function focusWin(win) {
@@ -340,15 +371,19 @@
 
     titlebar.addEventListener('mousedown', e => {
       if (isMobile() || e.target.tagName === 'BUTTON') return;
+      win.classList.add('dragging');
       const r = win.getBoundingClientRect();
       const ox = e.clientX - r.left, oy = e.clientY - r.top;
       const onMove = e => {
         win.style.left = (e.clientX - ox) + 'px';
         win.style.top  = (e.clientY - oy) + 'px';
         win.style.right = win.style.bottom = 'auto';
-        updateWinTop(win);
       };
       const onUp = () => {
+        win.classList.remove('dragging');
+        const dr = win.getBoundingClientRect();
+        win._ratioX = dr.left / window.innerWidth;
+        win._ratioY = dr.top / window.innerHeight;
         document.removeEventListener('mousemove', onMove);
         document.removeEventListener('mouseup', onUp);
       };
@@ -358,13 +393,52 @@
     });
   });
 
+  function clampWindows() {
+    if (isMobile()) return;
+    document.querySelectorAll('.draggable').forEach(win => {
+      if (win.style.display === 'none' || win._ratioX === undefined) return;
+      const w = win.offsetWidth, h = win.offsetHeight;
+      let left = win._ratioX * window.innerWidth;
+      let top  = win._ratioY * window.innerHeight;
+      left = Math.min(Math.max(0, left), window.innerWidth  - w - 10);
+      top  = Math.min(Math.max(0, top),  window.innerHeight - h - 44);
+      win.style.left   = left + 'px';
+      win.style.top    = top  + 'px';
+      win.style.right  = 'auto';
+      win.style.bottom = 'auto';
+    });
+  }
+  window.addEventListener('resize', clampWindows);
+
+  function adjustSidebar() {
+    if (isMobile()) return;
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.remove('sidebar--grid');
+    sidebar.style.transform = '';
+    void sidebar.offsetHeight;
+
+    const naturalH = sidebar.offsetHeight;
+    const availH   = window.innerHeight - 40;
+    if (naturalH <= availH) return;
+
+    const scale = availH / naturalH;
+    if (scale < 0.55) {
+      sidebar.classList.add('sidebar--grid');
+      sidebar.style.transform = '';
+      void sidebar.offsetHeight;
+      const gridH = sidebar.offsetHeight;
+      if (gridH > availH)
+        sidebar.style.transform = `scale(${Math.max(0.45, availH / gridH).toFixed(3)})`;
+    } else {
+      sidebar.style.transform = `scale(${scale.toFixed(3)})`;
+    }
+  }
+  window.addEventListener('resize', adjustSidebar);
+  adjustSidebar();
+
   const homeWins = ['win-info-photo', 'win-info-name', 'win-info-intro'];
 
-  if (isMobile()) {
-    homeWins.forEach(id => openWin(id));
-  } else {
-    homeWins.forEach((id, i) => setTimeout(() => openWin(id), 300 + i * 450));
-  }
+  homeWins.forEach((id, i) => setTimeout(() => openWin(id), 300 + i * 450));
 </script>
 </body>
 </html>
