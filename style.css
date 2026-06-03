@@ -483,6 +483,17 @@ hr {
 
 /* ── RESPONSIVE MOBILE ── */
 @media (max-width: 768px) {
+  html {
+    background-color: #9ac4ee;
+    background-image: url('Img/fond.png');
+    background-repeat: repeat;
+    background-size: auto;
+    /* Étend le fond dans les safe areas iOS (notch + home indicator) */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    box-sizing: border-box;
+  }
+
   html, body {
     overflow: visible;
     overflow-x: hidden;
