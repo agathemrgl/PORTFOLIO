@@ -41,11 +41,11 @@
 <div class="desktopicon" onclick="toggleWin('win-about')">
   <img class="ico" src="Img/folder-cv.png" alt="Infos"><p>Infos</p>
 </div>
-<div class="desktopicon" onclick="toggleFolder(['win-degel-text-1','win-degel-text-2','win-degel-img-1','win-degel-img-2'])">
-  <img class="ico" src="Img/folder-projet.png" alt="Dress Selec"><p>Dégel Festival</p>
+<div class="desktopicon" onclick="toggleFolder(['win-degel-text-1','win-degel-text-2','win-degel-img-1','win-degel-img-2','win-degel-couleur','win-degel-map','win-degel-sites'])">
+  <img class="ico" src="Img/folder.svg" alt="Dégel Festival"><p>Dégel Festival</p>
 </div>
-<div class="desktopicon" onclick="toggleWin('win-music')">
-  <img class="ico" src="Img/folder.svg" alt="Musical Dream"><p>Musical Dream</p>
+<div class="desktopicon" onclick="toggleFolder(['win-craquelins-text-1','win-craquelins-text-2','win-craquelins-carte','win-craquelins-mail','win-craquelins-couleur','win-craquelins-logo','win-craquelins-affiche'])">
+  <img class="ico" src="Img/folder.svg" alt="Craquelins Margely"><p>Craquelins Margely</p>
 </div>
 <div class="desktopicon" onclick="toggleWin('win-work')">
   <img class="ico" src="Img/folder.svg" alt="Workaholic"><p>Workaholic</p>
@@ -95,7 +95,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   </div>
 </div>
 
-<!-- ══ DRESS SELEC : TEXTE 1 ══ -->
+<!-- ══ Dégel Festival : TEXTE 1 ══ -->
 <div class="draggable win-degel" id="win-degel-text-1">
   <div class="titlebar">
     <div class="titlebar-left">Dégel Festival</div>
@@ -105,12 +105,12 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   </div>
   <div class="win-text">
     <p class="editorial-label">Introduction</p>
+    <p>Dégel Festival est un festival de musique underground qui se déroule à l'entrée du printemps :)</p>
     <p>Le projet visait à créer une identité visuelle capable de traduire cette effervescence : brute, spontanée, colorée. </p>
-    <p>La direction artistique s’est articulée autour d’une typographie affirmée, de visuels intenses et d’une palette explosive, pour offrir une expérience qui dépasse l’annonce d’un événement.</p>
   </div>
 </div>
 
-<!-- ══ DRESS SELEC : TEXTE 2 ══ -->
+<!-- ══ Dégel Festival : TEXTE 2 ══ -->
 <div class="draggable win-degel" id="win-degel-text-2">
   <div class="titlebar">
     <div class="titlebar-left">Dégel Festival</div>
@@ -119,10 +119,11 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     </div>
   </div>
   <div class="win-text">
-    <p class="editorial-label">Stack</p>
-    <p>HTML · CSS · JavaScript — interface légère, sans base de données, tout en local.</p>
-    <p class="editorial-label" style="margin-top:12px">Statut</p>
-    <p>Work in progress — première version en cours de construction.</p>
+    <p class="editorial-label">DA</p>
+   <p>La direction artistique s’est articulée autour d’une typographie affirmée, de visuels intenses et d’une palette explosive, pour offrir une expérience qui dépasse l’annonce d’un événement.</p>
+   <p>L'arrivée du printemps et des températures plus douces sont détectées par le filtre de caméra thermique. La caméra dévoile des émotions, des sensations, des masses de corps se défoulant dans la musique.</p>
+   <p class="editorial-label" style="margin-top:12px">OUTILS</p>
+    <p>Figma — Suite Adobe</p>
   </div>
 </div>
 
@@ -134,7 +135,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
       <button class="close-btn" onclick="closeWin('win-degel-img-1')">✕</button>
     </div>
   </div>
-  <img class="win-img-placeholder" src="Img/degel-home.png" alt="Dégel Festival">
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/degel-home.png" alt="Dégel Festival"></div>
 </div>
 
 <!-- ══ DÉGEL FESTIVAL : IMAGE 2 ══ -->
@@ -145,62 +146,132 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
       <button class="close-btn" onclick="closeWin('win-degel-img-2')">✕</button>
     </div>
   </div>
-  <div class="win-img-placeholder"></div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/degel-artiste.png" alt="Dégel Festival"></div>
 </div>
 
-<!-- ══ MUSICAL DREAM ══ -->
-<div class="draggable" id="win-music">
+<!-- ══ DÉGEL FESTIVAL : COULEUR ══ -->
+<div class="draggable win-degel" id="win-degel-couleur">
   <div class="titlebar">
-    <div class="titlebar-left">Musical Dream</div>
+    <div class="titlebar-left">Dégel Festival — Couleurs</div>
     <div class="titlebar-btns">
-      <button class="close-btn" onclick="closeWin('win-music')">✕</button>
+      <button class="close-btn" onclick="closeWin('win-degel-couleur')">✕</button>
     </div>
   </div>
-  <div class="win-scroll">
-
-    <div class="scroll-block scroll-block--hero">
-      <div class="scroll-placeholder scroll-placeholder--large"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Introduction</p>
-        <p>Quelques lignes de présentation du projet ici. De quoi s'agit-il, quelle est l'idée principale ?</p>
-      </div>
-    </div>
-
-    <div class="scroll-block scroll-block--reverse">
-      <div class="scroll-block-text">
-        <p class="editorial-label">Contexte</p>
-        <p>Un peu de contexte sur le projet — pourquoi ce sujet, quelle est la problématique de départ.</p>
-      </div>
-      <div class="scroll-placeholder"></div>
-    </div>
-
-    <div class="scroll-block">
-      <div class="scroll-placeholder"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Processus</p>
-        <p>Étapes de création, recherches, itérations — comment le projet a évolué jusqu'à sa forme finale.</p>
-      </div>
-    </div>
-
-    <div class="scroll-block scroll-block--reverse">
-      <div class="scroll-block-text">
-        <p class="editorial-label">Résultat</p>
-        <p>Ce que le projet produit, à quoi il ressemble, ce qu'il permet de faire.</p>
-      </div>
-      <div class="scroll-placeholder"></div>
-    </div>
-
-    <div class="scroll-block">
-      <div class="scroll-placeholder"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Détail</p>
-        <p>Un zoom sur un élément particulier — une interaction, une décision de design, un choix technique.</p>
-      </div>
-    </div>
-
-  </div>
-  <div class="statusbar">WIP</div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/degel-couleur.png" alt="Dégel Festival — Couleurs"></div>
 </div>
+
+<!-- ══ DÉGEL FESTIVAL : MAP ══ -->
+<div class="draggable win-degel" id="win-degel-map">
+  <div class="titlebar">
+    <div class="titlebar-left">Dégel Festival — Map</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-degel-map')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/degel-map.png" alt="Dégel Festival — Map"></div>
+</div>
+
+<!-- ══ DÉGEL FESTIVAL : SITES ══ -->
+<div class="draggable win-degel" id="win-degel-sites">
+  <div class="titlebar">
+    <div class="titlebar-left">Dégel Festival — Site web</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-degel-sites')">✕</button>
+    </div>
+  </div>
+  <div class="win-sites-grid">
+    <img src="Img/degel-site1.png" alt="Dégel Festival — Site 1">
+    <img src="Img/degel-site2.png" alt="Dégel Festival — Site 2">
+    <img src="Img/degel-site3.png" alt="Dégel Festival — Site 3">
+  </div>
+</div>
+
+<!-- ══ CRAQUELINS MARGELY : TEXTE 1 ══ -->
+<div class="draggable win-craquelins" id="win-craquelins-text-1">
+  <div class="titlebar">
+    <div class="titlebar-left">Craquelins Margely</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-craquelins-text-1')">✕</button>
+    </div>
+  </div>
+  <div class="win-text">
+    <p class="editorial-label">Introduction</p>
+    <p>Les Craquelins Margely sont des biscuits artisanaux bretons.</p>
+    <p>Le projet visait à créer une identité visuelle capable de refléter l’esprit gourmand et artisanal de la marque : sincère, généreux, local.</p>
+  </div>
+</div>
+
+<!-- ══ CRAQUELINS MARGELY : TEXTE 2 ══ -->
+<div class="draggable win-craquelins" id="win-craquelins-text-2">
+  <div class="titlebar">
+    <div class="titlebar-left">Craquelins Margely</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-craquelins-text-2')">✕</button>
+    </div>
+  </div>
+  <div class="win-text">
+    <p class="editorial-label">DA</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p class="editorial-label" style="margin-top:12px">Outils</p>
+    <p>Figma — Suite Adobe</p>
+  </div>
+</div>
+
+<!-- ══ CRAQUELINS MARGELY : CARTE ══ -->
+<div class="draggable win-craquelins" id="win-craquelins-carte">
+  <div class="titlebar">
+    <div class="titlebar-left">Craquelins Margely — Carte</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-craquelins-carte')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/craquelins-carte.png" alt="Craquelins Margely — Carte"></div>
+</div>
+
+<!-- ══ CRAQUELINS MARGELY : MAIL ══ -->
+<div class="draggable win-craquelins" id="win-craquelins-mail">
+  <div class="titlebar">
+    <div class="titlebar-left">Craquelins Margely — Mail</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-craquelins-mail')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/craquelins-mail.png" alt="Craquelins Margely — Mail"></div>
+</div>
+
+<!-- ══ CRAQUELINS MARGELY : COULEUR ══ -->
+<div class="draggable win-craquelins" id="win-craquelins-couleur">
+  <div class="titlebar">
+    <div class="titlebar-left">Craquelins Margely — Couleurs</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-craquelins-couleur')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/craquelins-couleur.png" alt="Craquelins Margely — Couleurs"></div>
+</div>
+
+<!-- ══ CRAQUELINS MARGELY : LOGO ══ -->
+<div class="draggable win-craquelins" id="win-craquelins-logo">
+  <div class="titlebar">
+    <div class="titlebar-left">Craquelins Margely — Logo</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-craquelins-logo')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/craquelins-logo.png" alt="Craquelins Margely — Logo"></div>
+</div>
+
+<!-- ══ CRAQUELINS MARGELY : AFFICHE ══ -->
+<div class="draggable win-craquelins" id="win-craquelins-affiche">
+  <div class="titlebar">
+    <div class="titlebar-left">Craquelins Margely — Affiche</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-craquelins-affiche')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/craquelins-affiche.png" alt="Craquelins Margely — Affiche"></div>
+</div>
+
 
 <!-- ══ WORKAHOLIC ══ -->
 <div class="draggable" id="win-work">
@@ -408,7 +479,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   let zTop = 10;
 
   function isImgWin(win) {
-    return !!win.querySelector('.win-img-placeholder, .info-photo');
+    return !!win.querySelector('.win-img-placeholder, .info-photo, .win-sites-grid');
   }
 
   function randomPos(win) {
@@ -483,10 +554,21 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   function openFolder(ids) {
     const imgs = ids.filter(id => isImgWin(document.getElementById(id)));
     const txts = ids.filter(id => !isImgWin(document.getElementById(id)));
-    const ordered = [...imgs, ...txts];
     if (isMobile()) {
-      ordered.forEach((id, i) => openWin(id, i !== 0));
+      [...imgs, ...txts].forEach((id, i) => setTimeout(() => openWin(id, i !== 0), i * 180));
     } else {
+      // Mesure la largeur de chaque fenêtre image pour trier grande → petite
+      const imgsSorted = imgs.map(id => {
+        const win = document.getElementById(id);
+        win.style.display = 'flex';
+        win.style.visibility = 'hidden';
+        const w = win.offsetWidth;
+        win.style.display = 'none';
+        win.style.visibility = '';
+        return { id, w };
+      }).sort((a, b) => b.w - a.w).map(x => x.id);
+
+      const ordered = [...imgsSorted, ...txts];
       const placed = [];
       ordered.forEach((id, i) => setTimeout(() => openWin(id, false, placed), i * 180));
     }
@@ -541,7 +623,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
       let left = win._ratioX * window.innerWidth;
       let top  = win._ratioY * window.innerHeight;
       left = Math.min(Math.max(0, left), window.innerWidth  - w - 10);
-      top  = Math.min(Math.max(0, top),  window.innerHeight - h - 44);
+      top  = Math.max(0, Math.min(top, window.innerHeight - 44 - Math.min(h, window.innerHeight - 44)));
       win.style.left      = left + 'px';
       win.style.top       = top  + 'px';
       win.style.right     = 'auto';
