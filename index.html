@@ -44,11 +44,14 @@
 <div class="desktopicon" onclick="toggleFolder(['win-degel-text-1','win-degel-text-2','win-degel-img-1','win-degel-img-2','win-degel-couleur','win-degel-map','win-degel-sites'])">
   <img class="ico" src="Img/folder.svg" alt="Dégel Festival"><p>Dégel Festival</p>
 </div>
-<div class="desktopicon" onclick="toggleFolder(['win-craquelins-text-1','win-craquelins-text-2','win-craquelins-carte','win-craquelins-mail','win-craquelins-couleur','win-craquelins-logo','win-craquelins-affiche'])">
+<div class="desktopicon" onclick="toggleFolder(['win-craquelins-text-1','win-craquelins-text-2','win-craquelins-carte','win-craquelins-mail','win-craquelins-couleur','win-craquelins-logo','win-craquelins-affiche','win-craquelins-produit'])">
   <img class="ico" src="Img/folder.svg" alt="Craquelins Margely"><p>Craquelins Margely</p>
 </div>
-<div class="desktopicon" onclick="toggleWin('win-work')">
-  <img class="ico" src="Img/folder.svg" alt="Workaholic"><p>Workaholic</p>
+<div class="desktopicon" onclick="toggleFolder(['win-tenup-text-1','win-tenup-text-2','win-tenup-abribus','win-tenup-cartouche','win-tenup-couleur','win-tenup-display','win-tenup-ecran','win-tenup-typo'])">
+  <img class="ico" src="Img/folder.svg" alt="Ten'Up"><p>Ten'Up</p>
+</div>
+<div class="desktopicon" onclick="toggleFolder(['win-metz-text-1','win-metz-text-2','win-metz-couleur','win-metz-court','win-metz-fft','win-metz-fond2','win-metz-forme','win-metz-hospi','win-metz-insta','win-metz-lieu','win-metz-signa','win-metz-typo-exemple','win-metz-typo'])">
+  <img class="ico" src="Img/folder.svg" alt="Open de Metz"><p>Open de Metz</p>
 </div>
 <div class="desktopicon" onclick="toggleFolder(['win-contact','win-contact-2','win-contact-3'])">
   <img class="ico" src="Img/folder-contact.png" alt="Contact"><p>Contact</p>
@@ -197,7 +200,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   <div class="win-text">
     <p class="editorial-label">Introduction</p>
     <p>Les Craquelins Margely sont des biscuits artisanaux bretons.</p>
-    <p>Le projet visait à créer une identité visuelle capable de refléter l’esprit gourmand et artisanal de la marque : sincère, généreux, local.</p>
+    <p>Le projet vise à créer une identité visuelle capable de refléter l’esprit gourmand et artisanal de la marque : sincère, généreux, local.</p>
   </div>
 </div>
 
@@ -211,7 +214,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   </div>
   <div class="win-text">
     <p class="editorial-label">DA</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>L'utilisation d’une typographie fine, élégante ajoute la légèreté promisse par le Craquelin. Une palette pop qui créé un univers, une expérience de partage, de plaisir, de joie. Le savoir-faire passe les générations, le partage de ce produit unique reste. Le motif répétitif permet d'imager les Craquelins sur tous les supports de marque.</p>
     <p class="editorial-label" style="margin-top:12px">Outils</p>
     <p>Figma — Suite Adobe</p>
   </div>
@@ -273,58 +276,264 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
 </div>
 
 
-<!-- ══ WORKAHOLIC ══ -->
-<div class="draggable" id="win-work">
+<!-- ══ CRAQUELINS MARGELY : PRODUIT ══ -->
+<div class="draggable win-craquelins" id="win-craquelins-produit">
   <div class="titlebar">
-    <div class="titlebar-left">Workaholic</div>
+    <div class="titlebar-left">Craquelins Margely — Produit</div>
     <div class="titlebar-btns">
-      <button class="close-btn" onclick="closeWin('win-work')">✕</button>
+      <button class="close-btn" onclick="closeWin('win-craquelins-produit')">✕</button>
     </div>
   </div>
-  <div class="win-scroll">
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/craquelins-produit.JPG" alt="Craquelins Margely — Produit"></div>
+</div>
 
-    <div class="scroll-block scroll-block--hero">
-      <div class="scroll-placeholder scroll-placeholder--large"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Introduction</p>
-        <p>Quelques lignes de présentation du projet ici. De quoi s'agit-il, quelle est l'idée principale ?</p>
-      </div>
+<!-- ══ TEN'UP : TEXTE 1 ══ -->
+<div class="draggable win-tenup" id="win-tenup-text-1">
+  <div class="titlebar">
+    <div class="titlebar-left">Ten'Up</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-tenup-text-1')">✕</button>
     </div>
-
-    <div class="scroll-block scroll-block--reverse">
-      <div class="scroll-block-text">
-        <p class="editorial-label">Contexte</p>
-        <p>Un peu de contexte sur le projet — pourquoi ce sujet, quelle est la problématique de départ.</p>
-      </div>
-      <div class="scroll-placeholder"></div>
-    </div>
-
-    <div class="scroll-block">
-      <div class="scroll-placeholder"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Processus</p>
-        <p>Étapes de création, recherches, itérations — comment le projet a évolué jusqu'à sa forme finale.</p>
-      </div>
-    </div>
-
-    <div class="scroll-block scroll-block--reverse">
-      <div class="scroll-block-text">
-        <p class="editorial-label">Résultat</p>
-        <p>Ce que le projet produit, à quoi il ressemble, ce qu'il permet de faire.</p>
-      </div>
-      <div class="scroll-placeholder"></div>
-    </div>
-
-    <div class="scroll-block">
-      <div class="scroll-placeholder"></div>
-      <div class="scroll-block-text">
-        <p class="editorial-label">Détail</p>
-        <p>Un zoom sur un élément particulier — une interaction, une décision de design, un choix technique.</p>
-      </div>
-    </div>
-
   </div>
-  <div class="statusbar">WIP</div>
+  <div class="win-text">
+    <p class="editorial-label">Introduction</p>
+    <p>Ten'Up est une application qui rassemble toutes les disciplines de la FFT au même endroit. L'idée est d'accompagner et de faciliter les joueurs et joueuses dans leurs multi-pratiques.</p>
+    <p>La force de cette application est la diversité de services et des pratiques : le tennis, le padel, le beach tennis et le pickleball ainsi que sur la dimension communautaire.</p>
+  </div>
+</div>
+
+<!-- ══ TEN'UP : TEXTE 2 ══ -->
+<div class="draggable win-tenup" id="win-tenup-text-2">
+  <div class="titlebar">
+    <div class="titlebar-left">Ten'Up</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-tenup-text-2')">✕</button>
+    </div>
+  </div>
+  <div class="win-text">
+    <p class="editorial-label">DA</p>
+    <p>Le nouvel univers incarne une marque vivante et multi-service à travers tous leurs supports et intégrer les principes d'inclusion numérique.</p>
+    <p>La palette est dynamisée et étendue et elle se veut technique et compétitive pour tous les publics.</p>
+    <p class="editorial-label" style="margin-top:12px">Outils</p>
+    <p>Figma — Suite Adobe</p>
+  </div>
+</div>
+
+<!-- ══ TEN'UP : ABRIBUS ══ -->
+<div class="draggable win-tenup" id="win-tenup-abribus">
+  <div class="titlebar">
+    <div class="titlebar-left">Ten'Up — Abribus</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-tenup-abribus')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/tenup-abribus.png" alt="Ten'Up — Abribus"></div>
+</div>
+
+<!-- ══ TEN'UP : CARTOUCHE ══ -->
+<div class="draggable win-tenup" id="win-tenup-cartouche">
+  <div class="titlebar">
+    <div class="titlebar-left">Ten'Up</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-tenup-cartouche')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/tenup-cartouche.png" alt="Ten'Up — Cartouche"></div>
+</div>
+
+<!-- ══ TEN'UP : COULEUR ══ -->
+<div class="draggable win-tenup" id="win-tenup-couleur">
+  <div class="titlebar">
+    <div class="titlebar-left">Ten'Up — Couleurs</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-tenup-couleur')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/tenup-couleur.png" alt="Ten'Up — Couleurs"></div>
+</div>
+
+<!-- ══ TEN'UP : DISPLAY ══ -->
+<div class="draggable win-tenup" id="win-tenup-display">
+  <div class="titlebar">
+    <div class="titlebar-left">Ten'Up — Display</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-tenup-display')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/tenup-display.png" alt="Ten'Up — Display"></div>
+</div>
+
+<!-- ══ TEN'UP : ÉCRAN ══ -->
+<div class="draggable win-tenup" id="win-tenup-ecran">
+  <div class="titlebar">
+    <div class="titlebar-left">Ten'Up</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-tenup-ecran')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/tenup-ecran.png" alt="Ten'Up — Écran"></div>
+</div>
+
+<!-- ══ TEN'UP : TYPO ══ -->
+<div class="draggable win-tenup" id="win-tenup-typo">
+  <div class="titlebar">
+    <div class="titlebar-left">Ten'Up — Typographie</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-tenup-typo')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/tenup-typo.png" alt="Ten'Up — Typographie"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : TEXTE 1 ══ -->
+<div class="draggable win-metz" id="win-metz-text-1">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-text-1')">✕</button>
+    </div>
+  </div>
+  <div class="win-text">
+    <p class="editorial-label">Introduction</p>
+    <p>Du 16 au 22 novembre, les Arènes de Metz accueillent pour la première fois l'Open de Metz, un tournoi ATP Challenger 125 organisé et produit par la Fédération Française de Tennis (FFT). Cet événement s'inscrit dans la volonté de maintenir un rendez-vous international de tennis de haut niveau sur le territoire messin, en fin de saison — une période stratégique pour les joueurs en quête de points ATP décisifs.</p>
+  </div>
+</div>
+
+<!-- ══ OPEN DE METZ : TEXTE 2 ══ -->
+<div class="draggable win-metz" id="win-metz-text-2">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-text-2')">✕</button>
+    </div>
+  </div>
+  <div class="win-text">
+    <p class="editorial-label">DA</p>
+    <p></p>
+    <p class="editorial-label" style="margin-top:12px">Outils</p>
+    <p>Figma — Suite Adobe</p>
+  </div>
+</div>
+
+<!-- ══ OPEN DE METZ : COULEUR ══ -->
+<div class="draggable win-metz" id="win-metz-couleur">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Couleurs</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-couleur')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-couleur.png" alt="Open de Metz — Couleurs"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : COURT ══ -->
+<div class="draggable win-metz" id="win-metz-court">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Court</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-court')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-court.png" alt="Open de Metz — Court"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : FFT ══ -->
+<div class="draggable win-metz" id="win-metz-fft">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — FFT</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-fft')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-fft.png" alt="Open de Metz — FFT"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : FOND 2 ══ -->
+<div class="draggable win-metz" id="win-metz-fond2">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Fond 2</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-fond2')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-fond2.png" alt="Open de Metz — Fond 2"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : FORME ══ -->
+<div class="draggable win-metz" id="win-metz-forme">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Forme</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-forme')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-forme.png" alt="Open de Metz — Forme"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : HOSPI ══ -->
+<div class="draggable win-metz" id="win-metz-hospi">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-hospi')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-hospi.png" alt="Open de Metz — Hospitalité"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : INSTA ══ -->
+<div class="draggable win-metz" id="win-metz-insta">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Instagram</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-insta')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-insta.png" alt="Open de Metz — Instagram"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : LIEU ══ -->
+<div class="draggable win-metz" id="win-metz-lieu">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-lieu')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-lieu.png" alt="Open de Metz — Lieu"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : SIGNA ══ -->
+<div class="draggable win-metz" id="win-metz-signa">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Signalétique</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-signa')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-signa.png" alt="Open de Metz — Signalétique"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : TYPO EXEMPLE ══ -->
+<div class="draggable win-metz" id="win-metz-typo-exemple">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Typo exemple</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-typo-exemple')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-typo-exemple.png" alt="Open de Metz — Typo exemple"></div>
+</div>
+
+<!-- ══ OPEN DE METZ : TYPO ══ -->
+<div class="draggable win-metz" id="win-metz-typo">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Typographie</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-typo')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-typo.png" alt="Open de Metz — Typographie"></div>
 </div>
 
 <!-- ══ INFOS ══ -->
