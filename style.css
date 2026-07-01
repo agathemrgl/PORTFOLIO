@@ -334,11 +334,11 @@ hr {
 .win-tenup .win-img-placeholder { background: #d9d5ff; }
 
 /* ── FENÊTRES OPEN DE METZ ── */
-.win-metz { background-color: #c5fdff; }
-.win-metz .titlebar { background: #c5fdff; border-bottom-color: #1a1a1a; }
-.win-metz .win-text { background-color: #c5fdff; }
-.win-metz .win-img-scroll { background-color: #c5fdff; }
-.win-metz .win-img-placeholder { background: #c5fdff; }
+.win-metz { background-color: #e1fdff; }
+.win-metz .titlebar { background: #e1fdff; border-bottom-color: #1a1a1a; }
+.win-metz .win-text { background-color: #e1fdff; }
+.win-metz .win-img-scroll { background-color: #e1fdff; }
+.win-metz .win-img-placeholder { background: #e1fdff; }
 
 /* ── FENÊTRES CONTACT ── */
 .win-contact { background-color: #a4ff79; }
@@ -480,19 +480,17 @@ img.win-img-placeholder {
 #win-tenup-display  { top: 100px; left: 300px; width: 440px; z-index: 1; display: none; } /* 683×522 → paysage */
 #win-tenup-ecran    { top: 80px;  left: 150px; width: 983px; z-index: 1; display: none; } /* 1242×505 → paysage */
 #win-tenup-typo     { top: 80px;  left: 180px; width: 520px; z-index: 1; display: none; } /* 1920×694 → paysage large */
+#win-metz-affiche     { top: 60px;  left: 180px; width: 600px; z-index: 1; display: none; } /* 521×695 → portrait */
 #win-metz-text-1      { top: 60px;  left: 120px; width: 500px; z-index: 1; display: none; }
 #win-metz-text-2      { top: 180px; left: 400px; width: 500px; z-index: 1; display: none; }
-#win-metz-couleur     { top: 60px;  left: 150px; width: 520px; z-index: 1; display: none; } /* 1809×728 → paysage */
-#win-metz-court       { top: 80px;  left: 300px; width: 850px; z-index: 1; display: none; } /* 1125×511 → paysage */
-#win-metz-fft         { top: 100px; left: 200px; width: 520px; z-index: 1; display: none; } /* 712×85 → très plat */
+#win-metz-couleur     { top: 60px;  left: 150px; width: 620px; z-index: 1; display: none; } /* 1809×728 → paysage */
+#win-metz-court       { top: 80px;  left: 300px; width: 750px; z-index: 1; display: none; } /* 1125×511 → paysage */
 #win-metz-fond2       { top: 60px;  left: 250px; width: 500px; z-index: 1; display: none; } /* 962×337 → paysage */
-#win-metz-forme       { top: 100px; left: 400px; width: 440px; z-index: 1; display: none; } /* 631×375 → paysage */
-#win-metz-hospi       { top: 120px; left: 500px; width: 150px; min-width: unset; z-index: 1; display: none; } /* 222×167 → paysage */
-#win-metz-insta       { top: 80px;  left: 180px; width: 340px; z-index: 1; display: none; } /* 350×505 → portrait */
-#win-metz-lieu        { top: 140px; left: 550px; width: 150px; min-width: unset; z-index: 1; display: none; } /* 222×167 → paysage */
+#win-metz-hospi       { top: 120px; left: 500px; width: 110px; min-width: unset; z-index: 1; display: none; } /* 222×167 → paysage */
+#win-metz-insta       { top: 80px;  left: 180px; width: 300px; z-index: 1; display: none; } /* 350×505 → portrait */
+#win-metz-lieu        { top: 140px; left: 550px; width: 110px; min-width: unset; z-index: 1; display: none; } /* 222×167 → paysage */
 #win-metz-signa       { top: 80px;  left: 200px; width: 500px; z-index: 1; display: none; } /* 1207×794 → paysage */
-#win-metz-typo-exemple { top: 100px; left: 350px; width: 460px; z-index: 1; display: none; } /* 743×397 → paysage */
-#win-metz-typo        { top: 70px;  left: 420px; width: 420px; z-index: 1; display: none; } /* 667×561 → carré */
+#win-metz-typo-exemple { top: 100px; left: 350px; width: 360px; z-index: 1; display: none; } /* 743×397 → paysage */
 #win-about   { width: 700px; z-index: 1; display: none; }
 #win-contact   { top: 160px; left: 580px; width: 300px; z-index: 1; display: none; }
 #win-contact-2 { top: 200px; left: 620px; width: 360px; z-index: 1; display: none; }
@@ -504,21 +502,70 @@ img.win-img-placeholder {
 	bottom: 12px;
 	right: 16px;
 	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0;
 }
+
+.trier-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	background: transparent;
+	border: none;
+	color: #aaa;
+	font-family: "IBM Plex Sans", Arial, sans-serif;
+	font-size: 12pt;
+	cursor: pointer;
+	padding: 2px 18px;
+}
+
+.trier-btn::before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 1.5px solid #aaa;
+	background: transparent;
+	flex-shrink: 0;
+	transition: background 0.15s, border-color 0.15s;
+}
+
+
+
+.trier-btn.actif::before {
+	background: #a4ff79;
+	border-color: #a4ff79;
+}
+
+html.trier-actif {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+html.trier-actif body {
+	overflow: visible;
+}
+
+body.trier-actif .sidebar {
+	position: fixed;
+	left: 0;
+	top: 5px;
+	z-index: 1000;
+}
+
 
 .reset-btn {
 	background: transparent;
 	border: none;
 	color: #aaa;
 	font-family: "IBM Plex Sans", Arial, sans-serif;
-	font-size: 9pt;
+	font-size: 12pt;
 	cursor: pointer;
-	padding: 4px 8px;
+	padding: 8px 18px;
 }
 
-.reset-btn:hover {
-	color: #555;
-}
 
 /* ── LAYOUT GÉNÉRAL ── */
 #layout {
@@ -530,6 +577,7 @@ img.win-img-placeholder {
 /* ── SIDEBAR RESPONSIVE DESKTOP ── */
 .sidebar {
 	transform-origin: top left;
+	width: fit-content;
 }
 
 .sidebar--grid {

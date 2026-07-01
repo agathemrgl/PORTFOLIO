@@ -38,7 +38,7 @@
 <div class="desktopicon" onclick="toggleFolder(['win-info-photo','win-info-name','win-info-intro'])">
   <img class="ico" src="Img/folder-home.png" alt="Home"><p>Home</p>
 </div>
-<div class="desktopicon" onclick="toggleWin('win-about')">
+<div class="desktopicon" onclick="toggleFolder(['win-about'])">
   <img class="ico" src="Img/folder-cv.png" alt="Infos"><p>Infos</p>
 </div>
 <div class="desktopicon" onclick="toggleFolder(['win-degel-text-1','win-degel-text-2','win-degel-img-1','win-degel-img-2','win-degel-couleur','win-degel-map','win-degel-sites'])">
@@ -50,7 +50,7 @@
 <div class="desktopicon" onclick="toggleFolder(['win-tenup-text-1','win-tenup-text-2','win-tenup-abribus','win-tenup-cartouche','win-tenup-couleur','win-tenup-display','win-tenup-ecran','win-tenup-typo'])">
   <img class="ico" src="Img/folder.svg" alt="Ten'Up"><p>Ten'Up</p>
 </div>
-<div class="desktopicon" onclick="toggleFolder(['win-metz-text-1','win-metz-text-2','win-metz-couleur','win-metz-court','win-metz-fft','win-metz-fond2','win-metz-forme','win-metz-hospi','win-metz-insta','win-metz-lieu','win-metz-signa','win-metz-typo-exemple','win-metz-typo'])">
+<div class="desktopicon" onclick="toggleFolder(['win-metz-text-1','win-metz-text-2','win-metz-affiche','win-metz-couleur','win-metz-court','win-metz-fond2','win-metz-hospi','win-metz-insta','win-metz-lieu','win-metz-signa','win-metz-typo-exemple'])">
   <img class="ico" src="Img/folder.svg" alt="Open de Metz"><p>Open de Metz</p>
 </div>
 <div class="desktopicon" onclick="toggleFolder(['win-contact','win-contact-2','win-contact-3'])">
@@ -395,7 +395,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   </div>
   <div class="win-text">
     <p class="editorial-label">Introduction</p>
-    <p>Du 16 au 22 novembre, les Arènes de Metz accueillent pour la première fois l'Open de Metz, un tournoi ATP Challenger 125 organisé et produit par la Fédération Française de Tennis (FFT). Cet événement s'inscrit dans la volonté de maintenir un rendez-vous international de tennis de haut niveau sur le territoire messin, en fin de saison — une période stratégique pour les joueurs en quête de points ATP décisifs.</p>
+    <p>Du 16 au 22 novembre, les Arènes de Metz accueillent pour la première fois l'Open de Metz, un tournoi ATP Challenger 125 organisé et produit par la Fédération Française de Tennis. Cet événement s'inscrit dans la volonté de maintenir un rendez-vous international de tennis de haut niveau sur le territoire messin, en fin de saison.</p>
   </div>
 </div>
 
@@ -409,10 +409,25 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   </div>
   <div class="win-text">
     <p class="editorial-label">DA</p>
-    <p></p>
+    <p>Le parti pris typographique repose sur une dualité assumée entre deux registres complémentaires. La police Monospace utilisée pour les titres impose une présence forte et structurée : héritée des environnements numériques et du code. En corps de texte, une Grotesque vient équilibrer l'ensemble grâce à sa géométrie uniforme, son absence totale d'ornements et sa bonne lisibilité, C'est une typographie au service de l'information.</p>
+    
+    <p>La palette chromatique a été pensée pour être percutante. En privilégiant des couleurs à forte résonance digitale, la charte s'adresse particulièrement aux jeunes générations et aux nouveaux fans de tennis, tout en conservant le prestige attendu d'un événement ATP de haut niveau.</p>
+    
+    <p>Enfin, les assets graphiques vaporeux et colorés constituent le cœur expressif de l'univers. Ils permettent d'étendre la charte, en créant une atmosphère immersive et reconnaissable. Les éléments d'habillage évoquent le mouvement, la vitesse et l'intensité du jeu.</p>
     <p class="editorial-label" style="margin-top:12px">Outils</p>
     <p>Figma — Suite Adobe</p>
   </div>
+</div>
+
+<!-- ══ OPEN DE METZ : AFFICHE ══ -->
+<div class="draggable win-metz" id="win-metz-affiche">
+  <div class="titlebar">
+    <div class="titlebar-left">Open de Metz — Affiche</div>
+    <div class="titlebar-btns">
+      <button class="close-btn" onclick="closeWin('win-metz-affiche')">✕</button>
+    </div>
+  </div>
+  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-affiche.png" alt="Open de Metz — Affiche"></div>
 </div>
 
 <!-- ══ OPEN DE METZ : COULEUR ══ -->
@@ -437,17 +452,6 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-court.png" alt="Open de Metz — Court"></div>
 </div>
 
-<!-- ══ OPEN DE METZ : FFT ══ -->
-<div class="draggable win-metz" id="win-metz-fft">
-  <div class="titlebar">
-    <div class="titlebar-left">Open de Metz — FFT</div>
-    <div class="titlebar-btns">
-      <button class="close-btn" onclick="closeWin('win-metz-fft')">✕</button>
-    </div>
-  </div>
-  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-fft.png" alt="Open de Metz — FFT"></div>
-</div>
-
 <!-- ══ OPEN DE METZ : FOND 2 ══ -->
 <div class="draggable win-metz" id="win-metz-fond2">
   <div class="titlebar">
@@ -457,17 +461,6 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     </div>
   </div>
   <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-fond2.png" alt="Open de Metz — Fond 2"></div>
-</div>
-
-<!-- ══ OPEN DE METZ : FORME ══ -->
-<div class="draggable win-metz" id="win-metz-forme">
-  <div class="titlebar">
-    <div class="titlebar-left">Open de Metz — Forme</div>
-    <div class="titlebar-btns">
-      <button class="close-btn" onclick="closeWin('win-metz-forme')">✕</button>
-    </div>
-  </div>
-  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-forme.png" alt="Open de Metz — Forme"></div>
 </div>
 
 <!-- ══ OPEN DE METZ : HOSPI ══ -->
@@ -523,17 +516,6 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     </div>
   </div>
   <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-typo-exemple.png" alt="Open de Metz — Typo exemple"></div>
-</div>
-
-<!-- ══ OPEN DE METZ : TYPO ══ -->
-<div class="draggable win-metz" id="win-metz-typo">
-  <div class="titlebar">
-    <div class="titlebar-left">Open de Metz — Typographie</div>
-    <div class="titlebar-btns">
-      <button class="close-btn" onclick="closeWin('win-metz-typo')">✕</button>
-    </div>
-  </div>
-  <div class="win-img-scroll"><img class="win-img-placeholder" src="Img/metz-typo.png" alt="Open de Metz — Typographie"></div>
 </div>
 
 <!-- ══ INFOS ══ -->
@@ -681,14 +663,233 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
 </div><!-- /#layout -->
 
 <footer class="site-footer">
-  <button class="reset-btn" onclick="location.reload()">Reset</button>
+  <button class="trier-btn" onclick="trierFenetres()">Trier</button>
+  <button class="reset-btn" onclick="location.reload()">Réinitialiser</button>
 </footer>
 
 <script>
   let zTop = 10;
+  let trierMode = false;
+
+  const WIN_PAIRS = {
+    'win-metz-hospi': 'win-metz-lieu',
+    'win-metz-lieu':  'win-metz-hospi'
+  };
+
+  const FOLDERS = [
+    ['win-info-photo', 'win-info-name', 'win-info-intro'],
+    ['win-about'],
+    ['win-degel-text-1', 'win-degel-text-2', 'win-degel-img-1', 'win-degel-img-2', 'win-degel-couleur', 'win-degel-map', 'win-degel-sites'],
+    ['win-craquelins-text-1', 'win-craquelins-text-2', 'win-craquelins-carte', 'win-craquelins-mail', 'win-craquelins-couleur', 'win-craquelins-logo', 'win-craquelins-affiche', 'win-craquelins-produit'],
+    ['win-tenup-text-1', 'win-tenup-text-2', 'win-tenup-abribus', 'win-tenup-cartouche', 'win-tenup-couleur', 'win-tenup-display', 'win-tenup-ecran', 'win-tenup-typo'],
+    ['win-metz-text-1', 'win-metz-text-2', 'win-metz-affiche', 'win-metz-couleur', 'win-metz-court', 'win-metz-fond2', 'win-metz-hospi', 'win-metz-insta', 'win-metz-lieu', 'win-metz-signa', 'win-metz-typo-exemple'],
+    ['win-contact', 'win-contact-2', 'win-contact-3'],
+  ];
 
   function isImgWin(win) {
     return !!win.querySelector('.win-img-placeholder, .info-photo, .win-sites-grid');
+  }
+
+  function getSidebarX() {
+    return Math.round(document.querySelector('.sidebar').getBoundingClientRect().right) + 20;
+  }
+
+  function placeWin(win, left, top) {
+    win.style.left      = left + 'px';
+    win.style.top       = top  + 'px';
+    win.style.right     = 'auto';
+    win.style.bottom    = 'auto';
+    win.style.maxHeight = trierMode ? 'none' : (window.innerHeight - top - 44) + 'px';
+    win._ratioX = left / window.innerWidth;
+    win._ratioY = top  / window.innerHeight;
+  }
+
+  function computeLayout(items, startY = 35) {
+    // items: [{ id, w, h }, …] — empile verticalement, retourne { positions, endY }
+    const X0 = getSidebarX();
+    const GAP = 12;
+    const positions = {};
+    let y = startY;
+    items.forEach(({ id, w, h }) => {
+      positions[id] = { left: X0, top: y };
+      y += h + GAP;
+    });
+    return { positions, endY: y };
+  }
+
+  function layoutHome(openIds, startY) {
+    const X0  = getSidebarX();
+    const GAP = 12;
+    const positions = {};
+
+    const has = id => openIds.includes(id);
+    const photoEl = has('win-info-photo') ? document.getElementById('win-info-photo') : null;
+    const introEl = has('win-info-intro') ? document.getElementById('win-info-intro') : null;
+    const nomEl   = has('win-info-name')  ? document.getElementById('win-info-name')  : null;
+
+    // Mesure un élément (le montre brièvement s'il est caché)
+    const measure = el => {
+      if (!el) return { w: 0, h: 0 };
+      const hidden = el.style.display !== 'flex';
+      if (hidden) { el.style.display = 'flex'; el.style.visibility = 'hidden'; void el.offsetWidth; }
+      const r = { w: el.offsetWidth, h: el.offsetHeight };
+      if (hidden) { el.style.display = 'none'; el.style.visibility = ''; }
+      return r;
+    };
+
+    const { w: photoW } = measure(photoEl);
+    const introLeft = X0 + (photoEl ? photoW + GAP : 0);
+
+    const { h: photoH } = measure(photoEl);
+    const { h: introH } = measure(introEl);
+    const { h: nomH }   = measure(nomEl);
+
+    // Colonne droite : intro + name empilés
+    const rightColH = introH + (nomEl ? GAP + nomH : 0);
+    const row1H = Math.max(photoH, rightColH);
+
+    let y = startY;
+    if (photoEl) positions['win-info-photo'] = { left: X0,        top: y };
+    if (introEl) positions['win-info-intro'] = { left: introLeft, top: y };
+    if (nomEl)   positions['win-info-name']  = { left: introLeft, top: y + introH + GAP };
+
+    return { positions, endY: y + row1H + GAP };
+  }
+
+  function layoutDegel(openIds, startY) {
+    const X0  = getSidebarX();
+    const GAP = 12;
+    const positions = {};
+
+    const has = id => openIds.includes(id);
+    const measure = el => {
+      if (!el) return { w: 0, h: 0 };
+      const hidden = el.style.display !== 'flex';
+      if (hidden) { el.style.display = 'flex'; el.style.visibility = 'hidden'; void el.offsetWidth; }
+      const r = { w: el.offsetWidth, h: el.offsetHeight };
+      if (hidden) { el.style.display = 'none'; el.style.visibility = ''; }
+      return r;
+    };
+
+    const text1El   = has('win-degel-text-1')   ? document.getElementById('win-degel-text-1')   : null;
+    const text2El   = has('win-degel-text-2')   ? document.getElementById('win-degel-text-2')   : null;
+    const img1El    = has('win-degel-img-1')    ? document.getElementById('win-degel-img-1')    : null;
+    const sitesEl   = has('win-degel-sites')    ? document.getElementById('win-degel-sites')    : null;
+    const mapEl     = has('win-degel-map')      ? document.getElementById('win-degel-map')      : null;
+    const couleurEl = has('win-degel-couleur')  ? document.getElementById('win-degel-couleur')  : null;
+    const img2El    = has('win-degel-img-2')    ? document.getElementById('win-degel-img-2')    : null;
+
+    const { w: t1W, h: t1H }    = measure(text1El);
+    const {         h: t2H }    = measure(text2El);
+    const { h: img1H }          = measure(img1El);
+    const { w: sitesW, h: sitesH } = measure(sitesEl);
+    const { w: mapW,   h: mapH }   = measure(mapEl);
+    const { w: coulW,  h: coulH }  = measure(couleurEl);
+    const { h: img2H }          = measure(img2El);
+
+    const leftColH = (text1El ? t1H + GAP : 0) + (text2El ? t2H : 0);
+    const img1Left = X0 + (t1W ? t1W + GAP : 0);
+
+    let y = startY;
+
+    // Rangée 1 : text-1 + text-2 à gauche | img-1 à droite
+    if (text1El) positions['win-degel-text-1'] = { left: X0,       top: y };
+    if (text2El) positions['win-degel-text-2'] = { left: X0,       top: y + (text1El ? t1H + GAP : 0) };
+    if (img1El)  positions['win-degel-img-1']  = { left: img1Left, top: y };
+    y += Math.max(leftColH, img1H) + GAP;
+
+    // Rangée 2 : sites | map (artiste) | couleur en horizontal
+    let x2 = X0;
+    let mapLeft = X0;
+    const row2Y = y;
+    if (sitesEl)   { positions['win-degel-sites']   = { left: x2, top: y }; x2 += sitesW + GAP; }
+    if (mapEl)     { mapLeft = x2; positions['win-degel-map']     = { left: x2, top: y }; x2 += mapW   + GAP; }
+    if (couleurEl) { positions['win-degel-couleur'] = { left: x2, top: y }; }
+    const row2H = Math.max(sitesH, mapH, coulH);
+    if (sitesEl || mapEl || couleurEl) y += row2H + GAP;
+
+    // img-2 (image artiste) : directement sous la fenêtre map (même gap)
+    const img2Top = row2Y + mapH + GAP;
+    if (img2El) { positions['win-degel-img-2'] = { left: mapLeft, top: img2Top }; y = Math.max(y, img2Top + img2H + GAP); }
+
+    return { positions, endY: y };
+  }
+
+  function layoutCraquelins(openIds, startY) {
+    const X0  = getSidebarX();
+    const GAP = 12;
+    const positions = {};
+
+    const has = id => openIds.includes(id);
+    const measure = el => {
+      if (!el) return { w: 0, h: 0 };
+      const hidden = el.style.display !== 'flex';
+      if (hidden) { el.style.display = 'flex'; el.style.visibility = 'hidden'; void el.offsetWidth; }
+      const r = { w: el.offsetWidth, h: el.offsetHeight };
+      if (hidden) { el.style.display = 'none'; el.style.visibility = ''; }
+      return r;
+    };
+
+    const text1El   = has('win-craquelins-text-1')  ? document.getElementById('win-craquelins-text-1')  : null;
+    const text2El   = has('win-craquelins-text-2')  ? document.getElementById('win-craquelins-text-2')  : null;
+    const carteEl   = has('win-craquelins-carte')   ? document.getElementById('win-craquelins-carte')   : null;
+    const logoEl    = has('win-craquelins-logo')    ? document.getElementById('win-craquelins-logo')    : null;
+    const couleurEl = has('win-craquelins-couleur') ? document.getElementById('win-craquelins-couleur') : null;
+    const produitEl = has('win-craquelins-produit') ? document.getElementById('win-craquelins-produit') : null;
+    const mailEl    = has('win-craquelins-mail')    ? document.getElementById('win-craquelins-mail')    : null;
+    const afficheEl = has('win-craquelins-affiche') ? document.getElementById('win-craquelins-affiche') : null;
+
+    const { w: t1W,    h: t1H    } = measure(text1El);
+    const {            h: t2H    } = measure(text2El);
+    const { w: carteW, h: carteH } = measure(carteEl);
+    const { w: logoW,  h: logoH  } = measure(logoEl);
+    const { w: coulW,  h: coulH  } = measure(couleurEl);
+    const { w: prodW,  h: prodH  } = measure(produitEl);
+    const { w: mailW,  h: mailH  } = measure(mailEl);
+    const { w: affW,   h: affH   } = measure(afficheEl);
+
+    const leftColH = (text1El ? t1H + GAP : 0) + (text2El ? t2H : 0);
+
+    let y = startY;
+
+    // Rangée 1 : text-1 + text-2 (col gauche) | carte | mail
+    let x1 = X0;
+    if (text1El)   { positions['win-craquelins-text-1'] = { left: x1, top: y }; }
+    if (text2El)   { positions['win-craquelins-text-2'] = { left: x1, top: y + (text1El ? t1H + GAP : 0) }; }
+    x1 += t1W ? t1W + GAP : 0;
+    if (carteEl)   { positions['win-craquelins-carte']  = { left: x1, top: y }; x1 += carteW + GAP; }
+    if (mailEl)    { positions['win-craquelins-mail']   = { left: x1, top: y }; }
+    y += Math.max(leftColH, carteH, mailH) + GAP;
+
+    // Rangée 2 : couleur | affiche | produit | logo
+    let x2 = X0;
+    if (couleurEl) { positions['win-craquelins-couleur'] = { left: x2, top: y }; x2 += coulW + GAP; }
+    if (afficheEl) { positions['win-craquelins-affiche'] = { left: x2, top: y }; x2 += affW  + GAP; }
+    if (produitEl) { positions['win-craquelins-produit'] = { left: x2, top: y }; x2 += prodW + GAP; }
+    if (logoEl)    { positions['win-craquelins-logo']    = { left: x2, top: y }; }
+    const row2H = Math.max(coulH, affH, prodH, logoH);
+    if (couleurEl || afficheEl || produitEl || logoEl) y += row2H + GAP;
+
+    return { positions, endY: y };
+  }
+
+  function getCurrentSortedBottom() {
+    let bottom = 35;
+    document.querySelectorAll('.draggable').forEach(win => {
+      if (win.style.display !== 'flex') return;
+      const top = parseInt(win.style.top) || 0;
+      bottom = Math.max(bottom, top + win.offsetHeight + 12);
+    });
+    return bottom;
+  }
+
+  function updateLayoutHeight() {
+    let maxBottom = window.innerHeight;
+    document.querySelectorAll('.draggable').forEach(win => {
+      if (win.style.display !== 'flex') return;
+      maxBottom = Math.max(maxBottom, (parseInt(win.style.top) || 0) + win.offsetHeight + 60);
+    });
+    document.getElementById('layout').style.minHeight = maxBottom + 'px';
   }
 
   function randomPos(win) {
@@ -702,7 +903,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     };
   }
 
-  function openWin(id, skipScroll = false, placed = null) {
+  function openWin(id, skipScroll = false, placed = null, forcedPos = null) {
     const win = document.getElementById(id);
     if (isMobile()) {
       const container = document.getElementById('win-container');
@@ -714,85 +915,158 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     }
     win.style.display = 'flex';
     win.classList.remove('win-appear');
-    void win.offsetWidth; // force layout — offsetWidth/Height sont réels ici
+    void win.offsetWidth;
     win.classList.add('win-appear');
     if (!isMobile()) {
       let pos;
-      if (placed) {
-        const TRIES = 12, MAX_OVERLAP = 10 * 10;
-        let best = null, bestOverlap = Infinity;
-        for (let t = 0; t < TRIES; t++) {
-          const p = randomPos(win);
-          const w = win.offsetWidth, h = win.offsetHeight;
-          const overlap = placed.reduce((acc, r) => {
-            const ox = Math.max(0, Math.min(p.left + w, r.left + r.w) - Math.max(p.left, r.left));
-            const oy = Math.max(0, Math.min(p.top  + h, r.top  + r.h) - Math.max(p.top,  r.top));
-            return acc + ox * oy;
-          }, 0);
-          if (best === null || overlap < bestOverlap) { best = p; bestOverlap = overlap; }
-          if (bestOverlap <= MAX_OVERLAP) break;
-        }
-        pos = best;
-        placed.push({ left: pos.left, top: pos.top, w: win.offsetWidth, h: win.offsetHeight });
+      if (forcedPos) {
+        pos = forcedPos;
       } else {
-        pos = randomPos(win);
+        const partnerId = WIN_PAIRS[id];
+        const partnerWin = partnerId ? document.getElementById(partnerId) : null;
+        if (partnerWin && partnerWin.style.display === 'flex' && partnerWin._ratioX !== undefined) {
+          const pLeft = Math.round(partnerWin._ratioX * window.innerWidth);
+          const pTop  = Math.round(partnerWin._ratioY * window.innerHeight);
+          const pW    = partnerWin.offsetWidth;
+          const w     = win.offsetWidth;
+          let left = pLeft + pW + 20;
+          if (left + w > window.innerWidth - 10) left = Math.max(0, pLeft - w - 20);
+          pos = { left, top: pTop };
+          if (placed) placed.push({ left: pos.left, top: pos.top, w, h: win.offsetHeight });
+        } else if (placed) {
+          const TRIES = 12, MAX_OVERLAP = 10 * 10;
+          let best = null, bestOverlap = Infinity;
+          for (let t = 0; t < TRIES; t++) {
+            const p = randomPos(win);
+            const w = win.offsetWidth, h = win.offsetHeight;
+            const overlap = placed.reduce((acc, r) => {
+              const ox = Math.max(0, Math.min(p.left + w, r.left + r.w) - Math.max(p.left, r.left));
+              const oy = Math.max(0, Math.min(p.top  + h, r.top  + r.h) - Math.max(p.top,  r.top));
+              return acc + ox * oy;
+            }, 0);
+            if (best === null || overlap < bestOverlap) { best = p; bestOverlap = overlap; }
+            if (bestOverlap <= MAX_OVERLAP) break;
+          }
+          pos = best;
+          placed.push({ left: pos.left, top: pos.top, w: win.offsetWidth, h: win.offsetHeight });
+        } else {
+          pos = randomPos(win);
+        }
       }
-      win.style.left      = pos.left + 'px';
-      win.style.top       = pos.top  + 'px';
-      win.style.right     = 'auto';
-      win.style.bottom    = 'auto';
+      placeWin(win, pos.left, pos.top);
       win.style.transform = 'none';
-      win.style.maxHeight = (window.innerHeight - pos.top - 44) + 'px';
-      win._ratioX = pos.left / window.innerWidth;
-      win._ratioY = pos.top  / window.innerHeight;
     }
     focusWin(win);
     if (isMobile() && !skipScroll) win.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
   function closeWin(id) {
     document.getElementById(id).style.display = 'none';
   }
+
   function toggleWin(id) {
     const win = document.getElementById(id);
     win.style.display === 'flex' ? closeWin(id) : openWin(id);
   }
+
+  function retrier() {
+    let y = 35;
+    FOLDERS.forEach(folderIds => {
+      const openIds = folderIds.filter(id => {
+        const win = document.getElementById(id);
+        return win && win.style.display === 'flex';
+      });
+      if (openIds.length === 0) return;
+      let positions, endY;
+      if (folderIds.includes('win-info-photo')) {
+        ({ positions, endY } = layoutHome(openIds, y));
+        openIds.forEach(id => { if (positions[id]) placeWin(document.getElementById(id), positions[id].left, positions[id].top); });
+      } else if (folderIds.includes('win-degel-text-1')) {
+        ({ positions, endY } = layoutDegel(openIds, y));
+        openIds.forEach(id => { if (positions[id]) placeWin(document.getElementById(id), positions[id].left, positions[id].top); });
+      } else if (folderIds.includes('win-craquelins-text-1')) {
+        ({ positions, endY } = layoutCraquelins(openIds, y));
+        openIds.forEach(id => { if (positions[id]) placeWin(document.getElementById(id), positions[id].left, positions[id].top); });
+      } else {
+        // Ordre FOLDERS : l'ordre des IDs dans le tableau = ordre d'affichage
+        const sorted = folderIds.filter(id => openIds.includes(id));
+        ({ positions, endY } = computeLayout(sorted.map(id => {
+          const win = document.getElementById(id);
+          return { id, w: win.offsetWidth, h: win.offsetHeight };
+        }), y));
+        sorted.forEach(id => placeWin(document.getElementById(id), positions[id].left, positions[id].top));
+      }
+      y = endY;
+    });
+    updateLayoutHeight();
+  }
+
   function toggleFolder(ids) {
     const anyOpen = ids.some(id => document.getElementById(id).style.display === 'flex');
-    if (anyOpen) { [...ids].reverse().forEach((id, i) => setTimeout(() => closeWin(id), i * 180)); } else { openFolder(ids); }
+    if (anyOpen) {
+      [...ids].reverse().forEach((id, i) => setTimeout(() => closeWin(id), i * 180));
+      if (!isMobile() && trierMode) setTimeout(retrier, ids.length * 180 + 50);
+    } else {
+      openFolder(ids);
+    }
   }
+
   function openFolder(ids) {
     const imgs = ids.filter(id => isImgWin(document.getElementById(id)));
     const txts = ids.filter(id => !isImgWin(document.getElementById(id)));
     if (isMobile()) {
       [...imgs, ...txts].forEach((id, i) => setTimeout(() => openWin(id, i !== 0), i * 180));
-    } else {
-      // Mesure la largeur de chaque fenêtre image pour trier grande → petite
-      const imgsSorted = imgs.map(id => {
-        const win = document.getElementById(id);
-        win.style.display = 'flex';
-        win.style.visibility = 'hidden';
-        const w = win.offsetWidth;
-        win.style.display = 'none';
-        win.style.visibility = '';
-        return { id, w };
-      }).sort((a, b) => b.w - a.w).map(x => x.id);
+      return;
+    }
 
-      const ordered = [...imgsSorted, ...txts];
+    // Mesure toutes les fenêtres pour le tri par aire et le calcul de layout
+    const dims = {};
+    ids.forEach(id => {
+      const win = document.getElementById(id);
+      const wasHidden = win.style.display !== 'flex';
+      if (wasHidden) { win.style.display = 'flex'; win.style.visibility = 'hidden'; void win.offsetWidth; }
+      dims[id] = { w: win.offsetWidth, h: win.offsetHeight };
+      if (wasHidden) { win.style.display = 'none'; win.style.visibility = ''; }
+    });
+
+    const imgsSorted = [...imgs].sort((a, b) => (dims[b].w * dims[b].h) - (dims[a].w * dims[a].h));
+    const ordered = [...imgsSorted, ...txts];
+
+    if (trierMode) {
+      const startY = getCurrentSortedBottom();
+      let positions;
+      if (ids.includes('win-info-photo')) {
+        ({ positions } = layoutHome(ids, startY));
+      } else if (ids.includes('win-degel-text-1')) {
+        ({ positions } = layoutDegel(ids, startY));
+      } else if (ids.includes('win-craquelins-text-1')) {
+        ({ positions } = layoutCraquelins(ids, startY));
+      } else {
+        // Ordre FOLDERS : ids est déjà dans le bon ordre
+        ({ positions } = computeLayout(ids.map(id => ({ id, ...dims[id] })), startY));
+      }
+      ids.forEach((id, i) => setTimeout(() => openWin(id, false, null, positions[id]), i * 180));
+      setTimeout(updateLayoutHeight, ordered.length * 180 + 50);
+    } else {
       const placed = [];
       ordered.forEach((id, i) => setTimeout(() => openWin(id, false, placed), i * 180));
     }
   }
+
   function focusWin(win) {
     win.style.zIndex = ++zTop;
   }
+
   function selectIcon(el) {
     document.querySelectorAll('.desktopicon').forEach(d => d.classList.remove('selected'));
     el.classList.add('selected');
   }
+
   document.body.addEventListener('click', e => {
     if (!e.target.closest('.desktopicon') && !e.target.closest('.draggable'))
       document.querySelectorAll('.desktopicon').forEach(d => d.classList.remove('selected'));
   });
+
   const isMobile = () => window.innerWidth <= 768;
 
   document.querySelectorAll('.draggable').forEach(win => {
@@ -824,8 +1098,86 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     });
   });
 
-  function clampWindows() {
+  function trierFenetres() {
     if (isMobile()) return;
+
+    trierMode = !trierMode;
+    const btn = document.querySelector('.trier-btn');
+    btn.classList.toggle('actif', trierMode);
+
+    if (trierMode) {
+      document.documentElement.classList.add('trier-actif');
+      document.body.classList.add('trier-actif');
+      // Empiler chaque dossier verticalement, l'un sous l'autre
+      let y = 35;
+      let anyPlaced = false;
+      retrier();
+      window.scrollTo(0, 0);
+    } else {
+      document.documentElement.classList.remove('trier-actif');
+      document.body.classList.remove('trier-actif');
+      document.getElementById('layout').style.minHeight = '';
+      window.scrollTo(0, 0);
+      // Remettre toutes les fenêtres ouvertes en positions aléatoires espacées
+      const placed = [];
+      const PAD = 40;
+      FOLDERS.forEach(folderIds => {
+        const openIds = folderIds.filter(id => {
+          const win = document.getElementById(id);
+          return win && win.style.display === 'flex';
+        });
+        if (openIds.length === 0) return;
+        const imgs = openIds.filter(id => isImgWin(document.getElementById(id)));
+        const txts = openIds.filter(id => !isImgWin(document.getElementById(id)));
+        const imgsSorted = [...imgs].sort((a, b) => {
+          const ea = document.getElementById(a), eb = document.getElementById(b);
+          return (eb.offsetWidth * eb.offsetHeight) - (ea.offsetWidth * ea.offsetHeight);
+        });
+        [...imgsSorted, ...txts].forEach(id => {
+          const win = document.getElementById(id);
+          const TRIES = 20;
+          let best = null, bestOverlap = Infinity;
+          for (let t = 0; t < TRIES; t++) {
+            const p = randomPos(win);
+            const w = win.offsetWidth, h = win.offsetHeight;
+            const overlap = placed.reduce((acc, r) => {
+              const ox = Math.max(0, Math.min(p.left + w + PAD, r.left + r.w) - Math.max(p.left - PAD, r.left));
+              const oy = Math.max(0, Math.min(p.top  + h + PAD, r.top  + r.h) - Math.max(p.top  - PAD, r.top));
+              return acc + ox * oy;
+            }, 0);
+            if (best === null || overlap < bestOverlap) { best = p; bestOverlap = overlap; }
+            if (bestOverlap <= 0) break;
+          }
+          placeWin(win, best.left, best.top);
+          placed.push({ left: best.left, top: best.top, w: win.offsetWidth, h: win.offsetHeight });
+        });
+      });
+      // Restaurer la hiérarchie z : images grandes derrière, texte devant
+      reapplyZOrder();
+    }
+  }
+
+  function reapplyZOrder() {
+    FOLDERS.forEach(folderIds => {
+      const openIds = folderIds.filter(id => {
+        const win = document.getElementById(id);
+        return win && win.style.display === 'flex';
+      });
+      if (openIds.length === 0) return;
+      const imgs = openIds.filter(id => isImgWin(document.getElementById(id)));
+      const txts = openIds.filter(id => !isImgWin(document.getElementById(id)));
+      const imgsSorted = [...imgs].sort((a, b) => {
+        const ea = document.getElementById(a), eb = document.getElementById(b);
+        return (eb.offsetWidth * eb.offsetHeight) - (ea.offsetWidth * ea.offsetHeight);
+      });
+      [...imgsSorted, ...txts].forEach(id => {
+        document.getElementById(id).style.zIndex = ++zTop;
+      });
+    });
+  }
+
+  function clampWindows() {
+    if (isMobile() || trierMode) return;
     document.querySelectorAll('.draggable').forEach(win => {
       if (win.style.display === 'none' || win._ratioX === undefined) return;
       const w = win.offsetWidth, h = win.offsetHeight;
@@ -869,7 +1221,6 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   adjustSidebar();
 
   const homeWins = ['win-info-photo', 'win-info-name', 'win-info-intro'];
-
   homeWins.forEach((id, i) => setTimeout(() => openWin(id), 300 + i * 450));
 </script>
 </body>
