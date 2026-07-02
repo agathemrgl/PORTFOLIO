@@ -299,6 +299,7 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     <p class="editorial-label">Introduction</p>
     <p>Ten'Up est une application qui rassemble toutes les disciplines de la FFT au même endroit. L'idée est d'accompagner et de faciliter les joueurs et joueuses dans leurs multi-pratiques.</p>
     <p>La force de cette application est la diversité de services et des pratiques : le tennis, le padel, le beach tennis et le pickleball ainsi que sur la dimension communautaire.</p>
+
   </div>
 </div>
 
@@ -396,6 +397,8 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
   <div class="win-text">
     <p class="editorial-label">Introduction</p>
     <p>Du 16 au 22 novembre, les Arènes de Metz accueillent pour la première fois l'Open de Metz, un tournoi ATP Challenger 125 organisé et produit par la Fédération Française de Tennis. Cet événement s'inscrit dans la volonté de maintenir un rendez-vous international de tennis de haut niveau sur le territoire messin, en fin de saison.</p>
+    <p>Du 16 au 22 novembre, les Arènes de Metz accueillent pour la première fois l'Open de Metz, un tournoi ATP Challenger 125 organisé et produit par la Fédération Française de Tennis. Cet événement s'inscrit dans la volonté de maintenir un rendez-vous international de tennis de haut niveau sur le territoire messin, en fin de saison.</p>
+
   </div>
 </div>
 
@@ -873,6 +876,151 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     return { positions, endY: y };
   }
 
+  function layoutTenup(openIds, startY) {
+    const X0  = getSidebarX();
+    const GAP = 12;
+    const positions = {};
+
+    const has = id => openIds.includes(id);
+    const measure = el => {
+      if (!el) return { w: 0, h: 0 };
+      const hidden = el.style.display !== 'flex';
+      if (hidden) { el.style.display = 'flex'; el.style.visibility = 'hidden'; void el.offsetWidth; }
+      const r = { w: el.offsetWidth, h: el.offsetHeight };
+      if (hidden) { el.style.display = 'none'; el.style.visibility = ''; }
+      return r;
+    };
+
+    const text1El    = has('win-tenup-text-1')    ? document.getElementById('win-tenup-text-1')    : null;
+    const text2El    = has('win-tenup-text-2')    ? document.getElementById('win-tenup-text-2')    : null;
+    const displayEl  = has('win-tenup-display')   ? document.getElementById('win-tenup-display')   : null;
+    const cartoucheEl = has('win-tenup-cartouche') ? document.getElementById('win-tenup-cartouche') : null;
+    const abribusEl  = has('win-tenup-abribus')   ? document.getElementById('win-tenup-abribus')   : null;
+    const couleurEl  = has('win-tenup-couleur')   ? document.getElementById('win-tenup-couleur')   : null;
+    const ecranEl    = has('win-tenup-ecran')     ? document.getElementById('win-tenup-ecran')     : null;
+    const typoEl     = has('win-tenup-typo')      ? document.getElementById('win-tenup-typo')      : null;
+
+    const { w: t1W,    h: t1H    } = measure(text1El);
+    const {            h: t2H    } = measure(text2El);
+    const { w: dispW,  h: dispH  } = measure(displayEl);
+    const { w: cartW,  h: cartH  } = measure(cartoucheEl);
+    const { w: abriW,  h: abriH  } = measure(abribusEl);
+    const { w: coulW,  h: coulH  } = measure(couleurEl);
+    const { w: ecrW,   h: ecrH   } = measure(ecranEl);
+    const { w: typoW,  h: typoH  } = measure(typoEl);
+
+    const leftColH = (text1El ? t1H + GAP : 0) + (text2El ? t2H : 0);
+
+    let y = startY;
+
+    // Rangée 1 : text-1 + text-2 (col gauche) | display | cartouche
+    if (text1El)     { positions['win-tenup-text-1']    = { left: X0, top: y }; }
+    if (text2El)     { positions['win-tenup-text-2']    = { left: X0, top: y + (text1El ? t1H + GAP : 0) }; }
+    let x1 = X0 + (t1W ? t1W + GAP : 0);
+    if (displayEl)   { positions['win-tenup-display']   = { left: x1, top: y }; x1 += dispW + GAP; }
+    if (cartoucheEl) { positions['win-tenup-cartouche'] = { left: x1, top: y }; }
+    y += Math.max(leftColH, dispH, cartH) + GAP;
+
+    // Rangée 2 : abribus | couleur
+    let x2 = X0;
+    if (abribusEl)  { positions['win-tenup-abribus'] = { left: x2, top: y }; x2 += abriW + GAP; }
+    if (couleurEl)  { positions['win-tenup-couleur'] = { left: x2, top: y }; }
+    const row2H = Math.max(abriH, coulH);
+    if (abribusEl || couleurEl) y += row2H + GAP;
+
+    // Rangée 3 : écran | typo
+    let x3 = X0;
+    if (ecranEl) { positions['win-tenup-ecran'] = { left: x3, top: y }; x3 += ecrW + GAP; }
+    if (typoEl)  { positions['win-tenup-typo']  = { left: x3, top: y }; }
+    const row3H = Math.max(ecrH, typoH);
+    if (ecranEl || typoEl) y += row3H + GAP;
+
+    return { positions, endY: y };
+  }
+
+  function layoutMetz(openIds, startY) {
+    const X0  = getSidebarX();
+    const GAP = 12;
+    const positions = {};
+
+    const has = id => openIds.includes(id);
+    const measure = el => {
+      if (!el) return { w: 0, h: 0 };
+      const hidden = el.style.display !== 'flex';
+      if (hidden) { el.style.display = 'flex'; el.style.visibility = 'hidden'; void el.offsetWidth; }
+      const r = { w: el.offsetWidth, h: el.offsetHeight };
+      if (hidden) { el.style.display = 'none'; el.style.visibility = ''; }
+      return r;
+    };
+
+    const text1El   = has('win-metz-text-1')       ? document.getElementById('win-metz-text-1')       : null;
+    const text2El   = has('win-metz-text-2')       ? document.getElementById('win-metz-text-2')       : null;
+    const typoEl    = has('win-metz-typo-exemple') ? document.getElementById('win-metz-typo-exemple') : null;
+    const fond2El   = has('win-metz-fond2')        ? document.getElementById('win-metz-fond2')        : null;
+    const couleurEl = has('win-metz-couleur')      ? document.getElementById('win-metz-couleur')      : null;
+    const afficheEl = has('win-metz-affiche')      ? document.getElementById('win-metz-affiche')      : null;
+    const courtEl   = has('win-metz-court')        ? document.getElementById('win-metz-court')        : null;
+    const instaEl   = has('win-metz-insta')        ? document.getElementById('win-metz-insta')        : null;
+    const signaEl   = has('win-metz-signa')        ? document.getElementById('win-metz-signa')        : null;
+    const hospiEl   = has('win-metz-hospi')        ? document.getElementById('win-metz-hospi')        : null;
+    const lieuEl    = has('win-metz-lieu')         ? document.getElementById('win-metz-lieu')         : null;
+
+    const { w: t1W,    h: t1H    } = measure(text1El);
+    const { w: t2W,    h: t2H    } = measure(text2El);
+    const { w: typoW,  h: typoH  } = measure(typoEl);
+    const { w: fond2W, h: fond2H } = measure(fond2El);
+    const { w: coulW,  h: coulH  } = measure(couleurEl);
+    const { w: affW,   h: affH   } = measure(afficheEl);
+    const { w: courtW, h: courtH } = measure(courtEl);
+    const { w: instaW, h: instaH } = measure(instaEl);
+    const { w: signaW, h: signaH } = measure(signaEl);
+    const { w: hospiW, h: hospiH } = measure(hospiEl);
+    const {            h: lieuH  } = measure(lieuEl);
+
+    // Colonnes alignées entre rangées 1 et 2
+    const col1W = Math.max(t1W, t2W);
+    const col2X = X0 + (col1W ? col1W + GAP : 0);
+    const col2W = Math.max(typoW, fond2W);
+    const col3X = col2X + (col2W ? col2W + GAP : 0);
+
+    let y = startY;
+
+    // Section haute : 3 colonnes
+    // Col 1 : text-1 (haut) + text-2 (bas)
+    // Col 2 : typo-exemple (haut) + fond2 (bas) + couleur sous fond2
+    // Col 3 : hospi (haut) + lieu (bas) — calé sur la largeur de typo-exemple
+    const hospiX = col2X + (typoW ? typoW + GAP : 0);
+    const lieuX = hospiX + (hospiW ? hospiW + GAP : 0);
+    if (text1El) { positions['win-metz-text-1']       = { left: X0,     top: y }; }
+    if (typoEl)  { positions['win-metz-typo-exemple'] = { left: col2X,  top: y }; }
+    if (hospiEl) { positions['win-metz-hospi']        = { left: hospiX, top: y }; }
+    if (lieuEl)  { positions['win-metz-lieu']         = { left: lieuX,  top: y }; }
+    y += Math.max(t1H, typoH, hospiH, lieuH) + GAP;
+
+    const row2Y = y;
+    if (text2El)   { positions['win-metz-text-2'] = { left: X0,    top: y }; }
+    if (fond2El)   { positions['win-metz-fond2']  = { left: col2X, top: y }; }
+    const coulTop = row2Y + fond2H + GAP;
+    if (couleurEl) { positions['win-metz-couleur'] = { left: col2X, top: coulTop }; }
+    y = Math.max(row2Y + Math.max(t2H, fond2H) + GAP, coulTop + coulH + GAP);
+
+    // Rangée 3 : affiche | court
+    const row3Y = y;
+    let x3 = X0;
+    let courtX = X0;
+    if (afficheEl) { positions['win-metz-affiche'] = { left: x3, top: y }; x3 += affW + GAP; }
+    if (courtEl)   { courtX = x3; positions['win-metz-court'] = { left: x3, top: y }; }
+    y += Math.max(affH, courtH) + GAP;
+
+    // Instagram + signalétique : sous court, côte à côte
+    const instaTop = row3Y + courtH + GAP;
+    if (instaEl) { positions['win-metz-insta'] = { left: courtX,               top: instaTop }; }
+    if (signaEl) { positions['win-metz-signa'] = { left: courtX + instaW + GAP, top: instaTop }; }
+    y = Math.max(y, instaTop + Math.max(instaH, signaH) + GAP);
+
+    return { positions, endY: y };
+  }
+
   function getCurrentSortedBottom() {
     let bottom = 35;
     document.querySelectorAll('.draggable').forEach(win => {
@@ -987,6 +1135,12 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
       } else if (folderIds.includes('win-craquelins-text-1')) {
         ({ positions, endY } = layoutCraquelins(openIds, y));
         openIds.forEach(id => { if (positions[id]) placeWin(document.getElementById(id), positions[id].left, positions[id].top); });
+      } else if (folderIds.includes('win-tenup-text-1')) {
+        ({ positions, endY } = layoutTenup(openIds, y));
+        openIds.forEach(id => { if (positions[id]) placeWin(document.getElementById(id), positions[id].left, positions[id].top); });
+      } else if (folderIds.includes('win-metz-text-1')) {
+        ({ positions, endY } = layoutMetz(openIds, y));
+        openIds.forEach(id => { if (positions[id]) placeWin(document.getElementById(id), positions[id].left, positions[id].top); });
       } else {
         // Ordre FOLDERS : l'ordre des IDs dans le tableau = ordre d'affichage
         const sorted = folderIds.filter(id => openIds.includes(id));
@@ -1001,12 +1155,33 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
     updateLayoutHeight();
   }
 
+  function getFolderIcon(ids) {
+    return document.querySelector(`.desktopicon[onclick*="${ids[0]}"] .ico`);
+  }
+
   function toggleFolder(ids) {
     const anyOpen = ids.some(id => document.getElementById(id).style.display === 'flex');
+    const NO_SWAP = ['win-info-photo', 'win-about', 'win-contact'];
+    const ico = NO_SWAP.includes(ids[0]) ? null : getFolderIcon(ids);
+
     if (anyOpen) {
-      [...ids].reverse().forEach((id, i) => setTimeout(() => closeWin(id), i * 180));
-      if (!isMobile() && trierMode) setTimeout(retrier, ids.length * 180 + 50);
+      if (ico && ico.dataset.src) ico.src = ico.dataset.src;
+      const openIds = ids.filter(id => document.getElementById(id).style.display === 'flex');
+      const closeOrder = !isMobile() && trierMode
+        ? [...openIds].sort((a, b) => {
+            const wa = document.getElementById(a), wb = document.getElementById(b);
+            const topA = parseInt(wa.style.top) || 0, topB = parseInt(wb.style.top) || 0;
+            const leftA = parseInt(wa.style.left) || 0, leftB = parseInt(wb.style.left) || 0;
+            return topA !== topB ? topA - topB : leftA - leftB;
+          }).reverse()
+        : [...ids].reverse();
+      closeOrder.forEach((id, i) => setTimeout(() => closeWin(id), i * 180));
+      if (!isMobile() && trierMode) setTimeout(retrier, closeOrder.length * 180 + 50);
     } else {
+      if (ico) {
+        if (!ico.dataset.src) ico.dataset.src = ico.src;
+        ico.src = 'Img/folder-open.svg';
+      }
       openFolder(ids);
     }
   }
@@ -1034,19 +1209,42 @@ Bienvenue sur mon site ! C'est un véritable témoin de mes projets et de mon pa
 
     if (trierMode) {
       const startY = getCurrentSortedBottom();
-      let positions;
+      let positions, endY;
       if (ids.includes('win-info-photo')) {
-        ({ positions } = layoutHome(ids, startY));
+        ({ positions, endY } = layoutHome(ids, startY));
       } else if (ids.includes('win-degel-text-1')) {
-        ({ positions } = layoutDegel(ids, startY));
+        ({ positions, endY } = layoutDegel(ids, startY));
       } else if (ids.includes('win-craquelins-text-1')) {
-        ({ positions } = layoutCraquelins(ids, startY));
+        ({ positions, endY } = layoutCraquelins(ids, startY));
+      } else if (ids.includes('win-tenup-text-1')) {
+        ({ positions, endY } = layoutTenup(ids, startY));
+      } else if (ids.includes('win-metz-text-1')) {
+        ({ positions, endY } = layoutMetz(ids, startY));
       } else {
         // Ordre FOLDERS : ids est déjà dans le bon ordre
-        ({ positions } = computeLayout(ids.map(id => ({ id, ...dims[id] })), startY));
+        ({ positions, endY } = computeLayout(ids.map(id => ({ id, ...dims[id] })), startY));
       }
-      ids.forEach((id, i) => setTimeout(() => openWin(id, false, null, positions[id]), i * 180));
-      setTimeout(updateLayoutHeight, ordered.length * 180 + 50);
+      const readingOrder = [...ids]
+        .filter(id => positions[id])
+        .sort((a, b) => {
+          const pa = positions[a], pb = positions[b];
+          return pa.top !== pb.top ? pa.top - pb.top : pa.left - pb.left;
+        });
+      if (readingOrder.length > 0) {
+        const firstId = readingOrder[0];
+        const firstTop = positions[firstId].top;
+        const firstH = dims[firstId]?.h ?? 0;
+        const margin = 15;
+        // Pré-étendre le layout pour que le scroll puisse atteindre firstTop
+        const layout = document.getElementById('layout');
+        const currentMinH = parseInt(layout.style.minHeight) || window.innerHeight;
+        layout.style.minHeight = Math.max(currentMinH, (endY ?? firstTop + firstH) + 60) + 'px';
+        // Scroll : top de la fenêtre positionné en bas du viewport pour inviter au scroll
+        const scrollTarget = Math.max(0, firstTop - window.innerHeight + 100);
+        window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+      }
+      readingOrder.forEach((id, i) => setTimeout(() => openWin(id, false, null, positions[id]), i * 180));
+      setTimeout(updateLayoutHeight, readingOrder.length * 180 + 50);
     } else {
       const placed = [];
       ordered.forEach((id, i) => setTimeout(() => openWin(id, false, placed), i * 180));

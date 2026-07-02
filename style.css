@@ -46,11 +46,9 @@ html, body {
 
 .desktopicon > .ico {
 	font-size: 36px;
-	width: 48px;
 	height: 48px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: auto;
+	display: block;
 	padding-bottom: 4px;
 }
 
@@ -603,6 +601,8 @@ body.trier-actif .sidebar {
 
 /* ── RESPONSIVE MOBILE ── */
 @media (max-width: 768px) {
+  .trier-btn { display: none; }
+
   html {
     background-color: #9ac4ee;
     background-image: url('Img/fond.png');
